@@ -17,11 +17,11 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
         $_SESSION['Fullname'] = fullName($username);
-        header("Location: ../View/acceuil/");
+        header("Location: ../View/");
     }else{
-        header("Location: ../View/login/");
+        header("Location: ../View/login.php");
     }
 }else{
-    header("Location: ../View/login/");
+    header("Location: ../View/login.php");
 }
 ?>
