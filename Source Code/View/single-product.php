@@ -35,7 +35,7 @@ https://www.tooplate.com/view/2114-pixie
           <div class="col-md-12">
             <div class="section-heading">
               <div class="line-dec"></div>
-              <h1>Single Product</h1>
+              <h1>Panzer 68</h1>
             </div>
           </div>
           <div class="col-md-6">
@@ -43,16 +43,7 @@ https://www.tooplate.com/view/2114-pixie
               <div id="slider" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="assets/images/big-01.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/big-02.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/big-03.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/big-04.jpg" />
+                    <img src="assets/images/product-01.jpg" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -60,16 +51,7 @@ https://www.tooplate.com/view/2114-pixie
               <div id="carousel" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="assets/images/thumb-01.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/thumb-02.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/thumb-03.jpg" />
-                  </li>
-                  <li>
-                    <img src="assets/images/thumb-04.jpg" />
+                    <img src="assets/images/product-01.jpg" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -78,8 +60,8 @@ https://www.tooplate.com/view/2114-pixie
           </div>
           <div class="col-md-6">
             <div class="right-content">
-              <h4>Single Product Name</h4>
-              <h6>$55.00</h6>
+              <h4>Panzer 68</h4>
+              <h6>$10 000.00</h6>
               <p>Proin commodo, diam a ultricies sagittis, erat odio rhoncus metus, eu feugiat lorem lacus aliquet arcu. Curabitur in gravida nisi, non placerat nibh. Praesent sit amet diam ultrices, commodo turpis id, dignissim leo. Suspendisse mauris massa, porttitor non fermentum vel, ullamcorper scelerisque velit. </p>
               <span>7 left on stock</span>
               <form action="" method="get">
@@ -92,7 +74,7 @@ https://www.tooplate.com/view/2114-pixie
               </form>
               <div class="down-content">
                 <div class="categories">
-                  <h6>Category: <span><a href="#">Pants</a>,<a href="#">Women</a>,<a href="#">Lifestyle</a></span></h6>
+                  <h6>Category: <span><a href="#">Cold War Tank</a>,<a href="#">Man</a>,<a href="#">Lifestyle</a></span></h6>
                 </div>
                 <div class="share">
                   <h6>Share: <span><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a><a href="https://www.linkedin.com/""><i class="fa fa-linkedin"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></span></h6>
@@ -118,69 +100,34 @@ https://www.tooplate.com/view/2114-pixie
           </div>
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-01.jpg" alt="Item 1">
-                  <h4>Proin vel ligula</h4>
-                  <h6>$15.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-02.jpg" alt="Item 2">
-                  <h4>Erat odio rhoncus</h4>
-                  <h6>$25.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-03.jpg" alt="Item 3">
-                  <h4>Integer vel turpis</h4>
-                  <h6>$35.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-04.jpg" alt="Item 4">
-                  <h4>Sed purus quam</h4>
-                  <h6>$45.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-05.jpg" alt="Item 5">
-                  <h4>Morbi aliquet</h4>
-                  <h6>$55.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-06.jpg" alt="Item 6">
-                  <h4>Urna ac diam</h4>
-                  <h6>$65.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-04.jpg" alt="Item 7">
-                  <h4>Proin eget imperdiet</h4>
-                  <h6>$75.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-05.jpg" alt="Item 8">
-                  <h4>Nullam risus nisl</h4>
-                  <h6>$85.00</h6>
-                </div>
-              </a>
-              <a href="single-product.html">
-                <div class="featured-item">
-                  <img src="assets/images/item-06.jpg" alt="Item 9">
-                  <h4>Cras tempus</h4>
-                  <h6>$95.00</h6>
-                </div>
-              </a>
+                <a href="single-product.php">
+                    <div class="featured-item">
+                        <img src="assets/images/product-01.jpg" alt="Item 1">
+                        <h4>panzer 68</h4>
+                        <h6>$15 000.00</h6>
+                    </div>
+                </a>
+                <a href="single-product.php">
+                    <div class="featured-item">
+                        <img src="assets/images/product-02.jpg" alt="Item 2">
+                        <h4>type 69</h4>
+                        <h6>$69000.00</h6>
+                    </div>
+                </a>
+                <a href="single-product.php">
+                    <div class="featured-item">
+                        <img src="assets/images/product-03.jpg" alt="Item 3">
+                        <h4>Maus Panzer</h4>
+                        <h6>$800 000.00</h6>
+                    </div>
+                </a>
+                <a href="single-product.php">
+                    <div class="featured-item">
+                        <img src="assets/images/product-04.jpg" alt="Item 3">
+                        <h4>M24 Pershing</h4>
+                        <h6>$50 000.00</h6>
+                    </div>
+                </a>
             </div>
           </div>
         </div>
@@ -189,6 +136,8 @@ https://www.tooplate.com/view/2114-pixie
     <!-- Similar Ends Here -->
 
   <?php include "template/footer.html";?>
+  <script src="assets/js/isotope.js"></script>
+  <script src="assets/js/flex-slider.js"></script>
 
 
   </body>
