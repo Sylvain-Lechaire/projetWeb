@@ -13,27 +13,8 @@ session_start();
 <html lang="en">
 
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
-    <title>Acceuil</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/tooplate-main.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-<!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
+      <title>Acceuil</title>
+      <?php include 'template/head.php'?>
   </head>
 
   <body>
@@ -49,7 +30,11 @@ https://www.tooplate.com/view/2114-pixie
             <div class="caption">
               <h2>Tank&Cie Ecommerce</h2>
               <div class="line-dec"></div>
-                <p> Welcome to our website <br> We are a society that sell tank for Collector</p>
+                <p>
+                    Welcome to our website
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['password'])) echo $_SESSION['Fullname']; ?>
+                    <br> We are a tank society We love tank
+                </p>
               <div class="main-button">
                 <a href="products.php">Order Now!</a>
               </div>

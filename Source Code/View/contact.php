@@ -13,28 +13,8 @@ session_start();
 <html lang="en">
 
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
-    <title>Contact</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/tooplate-main.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/flex-slider.css">
-<!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
+      <title>Contact</title>
+      <?php include 'template/head.php'?>
   </head>
 
   <body>
@@ -60,8 +40,7 @@ https://www.tooplate.com/view/2114-pixie
                            3. Click "Share" and choose "Embed map" tab
                            4. Copy only URL and paste it within the src="" field below
                     -->
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197183.8373802372!2d-1.9415093691103689!3d6.781986417238027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi+Central+Market!5e0!3m2!1sen!2sth!4v1532967884907" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.2080922925704!2d7.444138966197665!3d46.946994602040995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e39c7261703ed%3A0xbeabe0693b92c675!2zUGFsYWlzIGbDqWTDqXJhbA!5e0!3m2!1sfr!2sch!4v1644568491789!5m2!1sfr!2sch" width="100%" height="500px" frameborder="0" style="border:0;" allowfullscreen></iframe>
             </div>
           </div>
           <div class="col-md-6">
@@ -96,7 +75,7 @@ https://www.tooplate.com/view/2114-pixie
                     </div>
                     <div class="col-md-12">
                       <div class="share">
-                        <h6>You can also keep in touch on: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></span></h6>
+                        <h6>You can also keep in touch on: <span><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a><a href="https://www.linkedin.com/""><i class="fa fa-linkedin"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></span></h6>
                       </div>
                     </div>
                   </div>

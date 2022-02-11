@@ -13,24 +13,10 @@ session_start();
 <html lang="en">
 
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
-    <title>Product Detail</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/tooplate-main.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/flex-slider.css">
+      <title>Product Detail</title>
+      <?php include 'template/head.php'?>
+      <link rel="stylesheet" href="assets/css/owl.css">
+      <link rel="stylesheet" href="assets/css/flex-slider.css">
 <!--
 Tooplate 2114 Pixie
 https://www.tooplate.com/view/2114-pixie
@@ -109,7 +95,7 @@ https://www.tooplate.com/view/2114-pixie
                   <h6>Category: <span><a href="#">Pants</a>,<a href="#">Women</a>,<a href="#">Lifestyle</a></span></h6>
                 </div>
                 <div class="share">
-                  <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></span></h6>
+                  <h6>Share: <span><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a><a href="https://www.linkedin.com/""><i class="fa fa-linkedin"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></span></h6>
                 </div>
               </div>
             </div>

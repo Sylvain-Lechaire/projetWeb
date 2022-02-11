@@ -19,7 +19,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="https://colorlib.com/etc/lf/Login_v16/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/header-logo.png" />
 	<link rel="stylesheet" type="text/css" href="vendor/icon-font.css">
 	<link rel="stylesheet" type="text/css" href="vendor/util.css">
 	<link rel="stylesheet" type="text/css" href="vendor/main.css">
