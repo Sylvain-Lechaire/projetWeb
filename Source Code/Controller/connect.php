@@ -6,7 +6,7 @@ Version: 1.0
 date: 04.02.22
 */
 
-require '../Model/index.php';
+require '../Model/GetLogin.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
