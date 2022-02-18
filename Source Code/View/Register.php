@@ -2,7 +2,7 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider
-Version: 1.0.1
+Version: 1.1.1
 date: 04.02.22
 */
 
@@ -63,6 +63,9 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 					<div class="container-login100-form-btn m-t-32">
 						<button onclick="return Validate()" class="login100-form-btn">Register</button>
 					</div>
+                    <div class="container-login100-form-btn m-t-32">
+                        <p>or <a href="Login.php"> Login</a></p>
+                    </div>
 				</form>
 			</div>
 		</div>

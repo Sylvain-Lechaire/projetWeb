@@ -31,6 +31,7 @@ sudo nano /etc/apache2/sites-available/<siteName>.conf
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 #end of file
+
 #dns registration
 #<siteName>        3600 IN A  <serverIp>
 #www.<siteName>    3600 IN A  <serverIp>
