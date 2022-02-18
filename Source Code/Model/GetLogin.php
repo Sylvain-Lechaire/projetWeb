@@ -34,7 +34,7 @@ function passwordCheck($user , $password){
 
 /**
  * @param $user
- * @return void
+ * @return Full name of users
  */
 function fullName($user){
     $file = file_get_contents("../Model/stockage.json");
@@ -42,7 +42,7 @@ function fullName($user){
 
     foreach ($jsonLoad as $i){
         if($i['username'] == $user){
-            return $i['fullName'];
+            return $i['realName']." ".$i['familyName'];
         }
     }
 }
