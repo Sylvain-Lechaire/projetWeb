@@ -1,3 +1,9 @@
+#Autor: Ethann Schneider, Sylvain Léchaire										    |
+#Date: 18.02.2022													    |
+#version: 1.1														    |
+#description: this documentation explains how to setup the software part on the server to get our website to run proprely.  |
+#----------------------------------------------------------------------------------------------------------------------------
+
 #install apache2
 sudo apt update
 sudo apt upgrade && sudo apt full-upgrade
@@ -7,7 +13,11 @@ cd /var/www/
 mkdir <siteName>
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/<siteName>.conf
 
-nano /etc/apache2/sites-available/<siteName>.conf
+#nano is a file editor
+#attention, very important to edit files in nano
+#save command: Ctrl+O
+#exit command: Ctrl+X note: if the file was not saved, nano will prompt you to do so 
+sudo nano /etc/apache2/sites-available/<siteName>.conf
 
 #in the file 
 <VirtualHost *:80>
@@ -47,7 +57,8 @@ sudo cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
 
 sudo nano /etc/fail2ban/jail.conf
 
-#add 
+#add in file
+#the instruction here is same as above
 [apache]
 enabled = true
 port = http, https
@@ -58,8 +69,6 @@ findtime = 600
 
 #modify
 [apache-badbots]
-# Ban hosts which agent identifies spammer robots crawling the web
-# for email addresses. The mail outputs are buffered.
 enabled  = true
 port     = http,https
 filter   = apache-badbots
@@ -87,11 +96,6 @@ findtime = 600
 
 # and 
 [sshd]
-
-# To use more aggressive sshd modes set filter parameter "mode" in jail.local:
-# normal (default), ddos, extra or aggressive (combines all).
-# See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
-#mode   = normal
 enabled  = true
 port     = ssh
 filter   = sshd
@@ -99,6 +103,8 @@ logpath  = %(sshd_log)s
 backend  = %(sshd_backend)s
 maxretry = 2
 findtime = 600
+
+#end nano session here as showed before
 
 sudo systemctl restart fail2ban.service
 sudo fail2ban-client status sshd 
@@ -112,7 +118,7 @@ Status for the jail: sshd
    |- Currently banned: 0
    |- Total banned:     0
    `- Banned IP list:
-#end output
+#end output, not need to be used, just compare results for troubleshooting
 
 sudo fail2ban-client status apache
 #output
@@ -125,7 +131,7 @@ Status for the jail: apache
    |- Currently banned: 0
    |- Total banned:     0
    `- Banned IP list:
-#end output
+#end output, same like above
 
 #install certbot and https certificate
 
