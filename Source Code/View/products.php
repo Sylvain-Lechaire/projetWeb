@@ -7,6 +7,10 @@ date: 04.02.22
 */
 
 session_start();
+
+require '../Model/Article.php';
+
+$AllArticle = getAllArticle();
 ?>
 
 <!DOCTYPE html>
@@ -47,42 +51,17 @@ session_start();
     <div class="featured container no-gutter">
 
         <div class="row posts">
-            <div id="1" class="item new col-md-4">
-              <a href="single-product.php">
+            <?php foreach ($AllArticle as $i): ?>
+            <div id="<?= $i['ProductId'] ?>" class="item new col-md-4">
+              <a href="single-product.php?id=<?= $i['ProductId'] ?>">
                 <div class="featured-item">
-                  <img src="assets/images/product-01.jpg" alt="">
-                  <h4>panzer 68</h4>
-                  <h6>$15 000.00</h6>
+                  <img src="../<?= $i['image'] ?>" alt="">
+                  <h4><?= $i['name'] ?></h4>
+                  <h6>$ <?= $i['price'] ?></h6>
                 </div>
               </a>
             </div>
-            <div id="2" class="item new col-md-4">
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-02.jpg" alt="">
-                        <h4>type 69</h4>
-                        <h6>$6900.00</h6>
-                    </div>
-                </a>
-            </div>
-            <div id="3" class="item new col-md-4">
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-03.jpg" alt="">
-                        <h4>Maus Panzer</h4>
-                        <h6>$800 000.00</h6>
-                    </div>
-                </a>
-            </div>
-            <div id="4" class="item new col-md-4">
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-04.jpg" alt="">
-                        <h4>M24 Pershing</h4>
-                        <h6>$50 000.00</h6>
-                    </div>
-                </a>
-            </div>
+            <?php endforeach;?>
         </div>
     </div>
 

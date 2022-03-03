@@ -7,6 +7,11 @@ date: 04.02.22
 */
 
 session_start();
+
+
+require '../Model/Article.php';
+
+$AllArticle = getAllArticle();
 ?>
 
 <!DOCTYPE html>
@@ -57,34 +62,15 @@ session_start();
           </div>
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
-                <a href="single-product.php">
-                  <div class="featured-item">
-                      <img src="assets/images/product-01.jpg" alt="Item 1">
-                      <h4>panzer 68</h4>
-                      <h6>$15 000.00</h6>
-                  </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-02.jpg" alt="Item 2">
-                        <h4>type 69</h4>
-                        <h6>$69000.00</h6>
-                    </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-03.jpg" alt="Item 3">
-                        <h4>Maus Panzer</h4>
-                        <h6>$800 000.00</h6>
-                    </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-04.jpg" alt="Item 3">
-                        <h4>M24 Pershing</h4>
-                        <h6>$50 000.00</h6>
-                    </div>
-                </a>
+                <?php foreach ($AllArticle as $i): ?>
+                    <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+                        <div class="featured-item">
+                            <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                            <h4><?= $i['name'] ?></h4>
+                            <h6>$ <?= $i['price'] ?></h6>
+                        </div>
+                    </a>
+                <?php endforeach;?>
             </div>
           </div>
         </div>

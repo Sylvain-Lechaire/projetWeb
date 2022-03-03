@@ -7,13 +7,21 @@ date: 04.02.22
 */
 
 session_start();
+
+require '../Model/Article.php';
+require '../Controller/Article.php';
+
+$AllArticle = getAllArticle();
+
+$article = getCheckArticle();
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
-      <title>Product Detail</title>
+      <title>Product Detail | <?= $article['name'] ?></title>
       <?php include 'template/head.php'?>
       <link rel="stylesheet" href="assets/css/owl.css">
       <link rel="stylesheet" href="assets/css/flex-slider.css">
@@ -35,7 +43,7 @@ https://www.tooplate.com/view/2114-pixie
           <div class="col-md-12">
             <div class="section-heading">
               <div class="line-dec"></div>
-              <h1>Panzer 68</h1>
+              <h1><?= $article['name'] ?></h1>
             </div>
           </div>
           <div class="col-md-6">
@@ -43,7 +51,7 @@ https://www.tooplate.com/view/2114-pixie
               <div id="slider" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="assets/images/product-01.jpg" />
+                    <img src="../<?= $article['image'] ?>" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -51,7 +59,7 @@ https://www.tooplate.com/view/2114-pixie
               <div id="carousel" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="assets/images/product-01.jpg" />
+                    <img src="../<?= $article['image'] ?>" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -60,10 +68,10 @@ https://www.tooplate.com/view/2114-pixie
           </div>
           <div class="col-md-6">
             <div class="right-content">
-              <h4>Panzer 68</h4>
-              <h6>$10 000.00</h6>
-              <p>Proin commodo, diam a ultricies sagittis, erat odio rhoncus metus, eu feugiat lorem lacus aliquet arcu. Curabitur in gravida nisi, non placerat nibh. Praesent sit amet diam ultrices, commodo turpis id, dignissim leo. Suspendisse mauris massa, porttitor non fermentum vel, ullamcorper scelerisque velit. </p>
-              <span>7 left on stock</span>
+              <h4><?= $article['name'] ?></h4>
+              <h6>$<?= $article['price'] ?></h6>
+              <p><?= $article['description'] ?></p>
+              <span><?= $article['quantityLeft'] ?> left on stock</span>
               <form action="" method="get">
                 <label for="quantity">Quantity:</label>
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
@@ -74,7 +82,7 @@ https://www.tooplate.com/view/2114-pixie
               </form>
               <div class="down-content">
                 <div class="categories">
-                  <h6>Category: <span><a href="#">Cold War Tank</a>,<a href="#">Man</a>,<a href="#">Lifestyle</a></span></h6>
+                  <h6>Category: <span><?php foreach ($article['Category'] as $i) echo "<a href='#'>$i</a>,"; ?></span></h6>
                 </div>
                 <div class="share">
                   <h6>Share: <span><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a><a href="https://www.linkedin.com/""><i class="fa fa-linkedin"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></span></h6>
@@ -100,34 +108,15 @@ https://www.tooplate.com/view/2114-pixie
           </div>
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-01.jpg" alt="Item 1">
-                        <h4>panzer 68</h4>
-                        <h6>$15 000.00</h6>
-                    </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-02.jpg" alt="Item 2">
-                        <h4>type 69</h4>
-                        <h6>$69000.00</h6>
-                    </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-03.jpg" alt="Item 3">
-                        <h4>Maus Panzer</h4>
-                        <h6>$800 000.00</h6>
-                    </div>
-                </a>
-                <a href="single-product.php">
-                    <div class="featured-item">
-                        <img src="assets/images/product-04.jpg" alt="Item 3">
-                        <h4>M24 Pershing</h4>
-                        <h6>$50 000.00</h6>
-                    </div>
-                </a>
+                <?php foreach ($AllArticle as $i): ?>
+                    <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+                        <div class="featured-item">
+                            <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                            <h4><?= $i['name'] ?></h4>
+                            <h6>$ <?= $i['price'] ?></h6>
+                        </div>
+                    </a>
+                <?php endforeach;?>
             </div>
           </div>
         </div>
