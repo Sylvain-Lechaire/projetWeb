@@ -46,4 +46,16 @@ function fullName($user){
         }
     }
 }
+
+function isLoginExist($login){
+    $file = file_get_contents("../Model/stockage.json");
+    $jsonLoad = json_decode($file, true);
+
+    foreach ($jsonLoad as $i){
+        if($i['username'] == $login){
+            return true;
+        }
+    }
+    return false;
+}
 ?>
