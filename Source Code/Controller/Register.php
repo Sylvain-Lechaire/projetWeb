@@ -20,6 +20,13 @@ if (isset($_POST['username']) and isset($_POST['realName']) and isset($_POST['fa
             newAccount($username, $password, $realName, $familyName);
 
             login($username, $password);
+        }else{
+            header("Location: ../View/Register.php");
         }
+    }else{
+        header("Location: ../View/Register.php");
     }
+}else{
+    header("Location: ../View/Register.php");
+
 }

@@ -77,7 +77,7 @@ https://www.tooplate.com/view/2114-pixie
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
                 	onfocus="if(this.value == '1') { this.value = ''; }" 
                     onBlur="if(this.value == '') { this.value = '1';}"
-                    value="1">
+                    value="1" max="<?= $article['quantityLeft'] ?>">
                 <input type="submit" class="button" value="Order Now!">
               </form>
               <div class="down-content">
