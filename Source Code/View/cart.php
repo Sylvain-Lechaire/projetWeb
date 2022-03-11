@@ -32,9 +32,11 @@ $price = 0;
 
 <?php include "template/header.php";?>
 
+<br><br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="line-dec"></div>
             <h2>Cart</h2>
             <div class="item">
                 <style>
@@ -63,7 +65,7 @@ $price = 0;
 
                     <?php foreach ($UserCart as $i): ?>
                     <?php
-                        $item = getArticle($i['Pruduct']);
+                        $item = getArticle($i['Product']);
                         $num++;
                         $price += $item['price'] * $i['Number'];
                     ?>
@@ -75,6 +77,13 @@ $price = 0;
                         <td><a href="single-product.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
                         <td><?= $i['Number'] ?></td>
                         <td>CHF <?= $item['price'] ?></td>
+                        <td width="20">
+                            <form action="" method="post">
+                                <input type="text" name="type" value="delete" hidden>
+                                <input type="number" name="type" value="<?= $i['Product'] ?>" hidden>
+                                <input type="submit" value="❌">
+                            </form>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                     <tfoot>
