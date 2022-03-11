@@ -9,9 +9,14 @@ date: 04.02.22
 session_start();
 
 require '../Model/Article.php';
+require '../Model/Cart.php';
 
 $AllArticle = getAllArticle();
 
+$UserCart = getCart($_SESSION['username']);
+
+$num = 0;
+$price = 0;
 
 ?>
 
@@ -47,24 +52,37 @@ $AllArticle = getAllArticle();
                 </style>
                 <table class="Cart-List">
                     <thead>
-                        <tr>
-                            <th>N°</th>
-                            <th>Picture</th>
-                            <th>Name</th>
-                            <th>Number</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
                     <tr>
-
-                        <td>1</td>
-                        <td class="cart-img">
-                            <img src="assets/images/product-01.jpg" height="150">
-                        </td>
-                        <td><a href="single-product.php?id=1">Item-1</a></td>
-                        <td>3</td>
-                        <td>10000$</td>
+                        <th>N°</th>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Price</th>
                     </tr>
+                    </thead>
+
+                    <?php foreach ($UserCart as $i): ?>
+                    <?php
+                        $item = getArticle($i['Pruduct']);
+                        $num++;
+                        $price += $item['price'] * $i['Number'];
+                    ?>
+                    <tr>
+                        <td><?= $num ?></td>
+                        <td class="cart-img">
+                            <img src="../<?= $item['image'] ?>" height="150">
+                        </td>
+                        <td><a href="single-product.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
+                        <td><?= $i['Number'] ?></td>
+                        <td>CHF <?= $item['price'] ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4">Total : </td>
+                        <td>CHF <?= $price ?></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
