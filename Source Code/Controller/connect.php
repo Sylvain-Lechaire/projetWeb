@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     if (passwordCheck($username, $password)){
         login($username, $password);
     }else{
-        header("Location: ../View/login.php");
+        header("Location: ../View/login.php?action=erreur");
     }
 }else{
     header("Location: ../View/login.php");
