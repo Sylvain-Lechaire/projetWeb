@@ -16,10 +16,10 @@ function articleExist($id){
     return false;
 }
 
-function getCheckArticle(){
-    if (isset($_GET['id'])){
-        if (articleExist((int)$_GET['id'])){
-            return getArticle((int)$_GET['id']);
+function getCheckArticle($id){
+    if (isset($id)){
+        if (articleExist((int)$id)){
+            return getArticle((int)$id);
         }else{
             header("Location: ../View/products.php");
         }

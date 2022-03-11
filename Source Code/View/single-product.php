@@ -13,7 +13,7 @@ require '../Controller/Article.php';
 
 $AllArticle = getAllArticle();
 
-$article = getCheckArticle();
+$article = getCheckArticle($_GET['id']);
 
 ?>
 

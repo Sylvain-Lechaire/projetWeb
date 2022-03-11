@@ -12,6 +12,7 @@ require '../Model/Article.php';
 
 $AllArticle = getAllArticle();
 
+
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +56,7 @@ $AllArticle = getAllArticle();
                         </tr>
                     </thead>
                     <tr>
+
                         <td>1</td>
                         <td class="cart-img">
                             <img src="assets/images/product-01.jpg" height="150">
