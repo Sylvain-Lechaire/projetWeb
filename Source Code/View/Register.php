@@ -33,8 +33,21 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
             return true;
         }
     </script>
+    <script>
+        function erreur(){
+            alert("il y a une erreur")
+        }
+    </script>
 </head>
-<body>
+
+
+<body onload="<?php
+if (isset($_GET['action'])){
+    if($_GET['action']=='erreur'){
+        echo 'erreur();';
+    }
+}
+?>">
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">

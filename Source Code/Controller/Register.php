@@ -21,12 +21,12 @@ if (isset($_POST['username']) and isset($_POST['realName']) and isset($_POST['fa
 
             login($username, $password);
         }else{
-            header("Location: ../View/Register.php");
+            header("Location: ../View/Register.php?action=erreur");
         }
     }else{
-        header("Location: ../View/Register.php");
+        header("Location: ../View/Register.php?action=erreur");
     }
 }else{
-    header("Location: ../View/Register.php");
+    header("Location: ../View/Register.php?action=erreur");
 
 }
