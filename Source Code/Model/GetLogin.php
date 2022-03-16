@@ -21,6 +21,11 @@ function logMessage($message){
  * @return bool
  */
 function passwordCheck($user , $password){
+    if(!file_exists("../Model/stockage.json")){
+        $fb=fopen("../Model/stockage.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 
@@ -37,22 +42,32 @@ function passwordCheck($user , $password){
  * @return Full name of users
  */
 function fullName($user){
+    if(!file_exists("../Model/stockage.json")){
+        $fb=fopen("../Model/stockage.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 
-    foreach ($jsonLoad as $i){
-        if($i['username'] == $user){
-            return $i['realName']." ".$i['familyName'];
+    foreach ($jsonLoad as $i) {
+        if ($i['username'] == $user) {
+            return $i['realName'] . " " . $i['familyName'];
         }
     }
 }
 
 function isLoginExist($login){
+    if(!file_exists("../Model/stockage.json")){
+        $fb=fopen("../Model/stockage.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 
-    foreach ($jsonLoad as $i){
-        if($i['username'] == $login){
+    foreach ($jsonLoad as $i) {
+        if ($i['username'] == $login) {
             return true;
         }
     }

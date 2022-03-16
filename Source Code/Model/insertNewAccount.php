@@ -7,6 +7,11 @@ date: 18.02.22
 */
 
 function newAccount($username, $hashPassword, $realName, $familyName){
+    if(!file_exists("../Model/stockage.json")){
+        $fb=fopen("../Model/stockage.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 

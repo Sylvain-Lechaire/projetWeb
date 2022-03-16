@@ -16,5 +16,6 @@ function login($username, $password){
     $_SESSION['username'] = $username;
     $_SESSION['password'] = $password;
     $_SESSION['Fullname'] = fullName($username);
+
     header("Location: ../View/");
 }

@@ -28,12 +28,12 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirmPassword").value;
             if (password != confirmPassword) {
+                alert('les mots de passe ne correspondent pas');
                 return false;
             }
             return true;
         }
-    </script>
-    <script>
+
         function erreur(){
             alert("il y a une erreur")
         }
