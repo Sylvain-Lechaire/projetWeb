@@ -18,17 +18,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="about.php">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <?php
-                    if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-                        echo '<a class="nav-link" href="../Controller/disconnect.php">Disconnect</a>';
-                    }else{
-                        echo '<a class="nav-link" href="Login.php">Login</a>';
-                    }
-                    ?>
+                <?php
+                if(isset($_SESSION['username']) && isset($_SESSION['password'])){
+                    echo '<li class="nav-item">';
+                    echo '    <a class="nav-link" href="../Controller/disconnect.php">Disconnect</a>';
+                    echo '</li>';
+                    echo '<li class="nav-item">';
+                    echo '    <a class="nav-link" href="../View/cart.php">Cart</a>';
+                    echo '</li>';
+                }else{
+                    echo '<li class="nav-item">';
+                    echo '    <a class="nav-link" href="Login.php">Login</a>';
+                    echo '</li>';
+                }
+                ?>
 
 
-                </li>
+
             </ul>
         </div>
     </div>

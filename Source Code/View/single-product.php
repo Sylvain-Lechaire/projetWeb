@@ -72,13 +72,15 @@ https://www.tooplate.com/view/2114-pixie
               <h6>$<?= $article['price'] ?></h6>
               <p><?= $article['description'] ?></p>
               <span><?= $article['quantityLeft'] ?> left on stock</span>
-              <form action="" method="get">
+              <form action="../Controller/cartControl.php" method="post">
                 <label for="quantity">Quantity:</label>
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
                 	onfocus="if(this.value == '1') { this.value = ''; }" 
                     onBlur="if(this.value == '') { this.value = '1';}"
                     value="1" max="<?= $article['quantityLeft'] ?>">
                 <input type="submit" class="button" value="Order Now!">
+                <input type="text" name="type" value="add" hidden>
+                <input type="number" name="id" value="<?= $article['ProductId'] ?>" hidden>
               </form>
               <div class="down-content">
                 <div class="categories">

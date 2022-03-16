@@ -3,10 +3,14 @@
 Projet: Tank&Cio
 Author: Ethann Schneider
 Version: 1.0
-date: 04.02.22
+date: 16.03.22
 */
 
 session_start();
+
+if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+    header("Location: ../View/");
+}
 
 require '../Model/Article.php';
 require '../Model/Cart.php';
@@ -78,9 +82,9 @@ $price = 0;
                         <td><?= $i['Number'] ?></td>
                         <td>CHF <?= $item['price'] ?></td>
                         <td width="20">
-                            <form action="" method="post">
+                            <form action="../Controller/cartControl.php" method="post">
                                 <input type="text" name="type" value="delete" hidden>
-                                <input type="number" name="type" value="<?= $i['Product'] ?>" hidden>
+                                <input type="number" name="id" value="<?= $i['Product'] ?>" hidden>
                                 <input type="submit" value="❌">
                             </form>
                         </td>
@@ -93,6 +97,10 @@ $price = 0;
                     </tr>
                     </tfoot>
                 </table>
+                <form action="../Controller/cartControl.php" method="post">
+                    <input type="text" name="type" value="clear" hidden>
+                    <input type="submit" value="Vider le Panier">
+                </form>
             </div>
         </div>
     </div>
