@@ -9,5 +9,5 @@ date: 04.02.22
 session_start();
 
 session_destroy();
-header("Location: ../View/login/");
+header("Location: ../View/");
 ?>
