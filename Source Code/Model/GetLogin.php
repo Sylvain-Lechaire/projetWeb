@@ -57,6 +57,10 @@ function fullName($user){
     }
 }
 
+/**
+ * @param $login
+ * @return bool
+ */
 function isLoginExist($login){
     if(!file_exists("../Model/stockage.json")){
         $fb=fopen("../Model/stockage.json", "w+");
