@@ -1,4 +1,10 @@
 <?php
+/*
+Projet: Tank&Cio
+Author: Ethann Schneider
+Version: 1.1
+date: 04.02.22
+*/
 
 session_start();
 

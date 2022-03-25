@@ -1,4 +1,10 @@
 <?php
+/*
+Projet: Tank&Cio
+Author: Ethann Schneider
+Version: 1.0
+date: 18.03.22
+*/
 
 /**
  * @param $username
