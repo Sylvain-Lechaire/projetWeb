@@ -1,7 +1,7 @@
 <?php
 /*
 Projet: Tank&Cio
-Author: Ethann Schneider
+Author: Ethann Schneider Amos Le Coq
 Version: 1.1.1
 date: 03.03.22
 */
@@ -34,17 +34,17 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
             return true;
         }
 
-        function erreur(){
-            alert("il y a une erreur")
+        function erreur(erreur){
+            alert(erreur)
         }
     </script>
 </head>
 
 
 <body onload="<?php
-if (isset($_GET['action'])){
+if (isset($_GET['action']) && isset($_GET['erreur'])){
     if($_GET['action']=='erreur'){
-        echo 'erreur();';
+        echo 'erreur(\''.$_GET['erreur'].'\');';
     }
 }
 ?>">

@@ -1,5 +1,15 @@
 <?php
+/*
+Projet: Tank&Cio
+Author: Ethann Schneider
+Version: 1.0
+date: 18.03.22
+*/
 
+/**
+ * @param $username
+ * @return array|mixed
+ */
 function getCart($username){
     if(!file_exists("../Model/cart.json")){
         $fb=fopen("../Model/cart.json", "w+");
@@ -18,6 +28,12 @@ function getCart($username){
 
 }
 
+/**
+ * @param $username
+ * @param $id
+ * @param $quantity
+ * @return bool
+ */
 function insertCart($username, $id, $quantity){
     if(!file_exists("../Model/cart.json")){
         $fb=fopen("../Model/cart.json", "w+");
@@ -43,6 +59,11 @@ function insertCart($username, $id, $quantity){
     return true;
 }
 
+/**
+ * @param $username
+ * @param $id
+ * @return void
+ */
 function removeCart($username, $id){
     if(!file_exists("../Model/cart.json")){
         $fb=fopen("../Model/cart.json", "w+");
@@ -70,6 +91,10 @@ function removeCart($username, $id){
     }
 }
 
+/**
+ * @param $username
+ * @return void
+ */
 function clearUserCart($username){
     if(!file_exists("../Model/cart.json")){
         $fb=fopen("../Model/cart.json", "w+");

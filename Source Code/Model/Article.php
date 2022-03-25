@@ -10,7 +10,7 @@ date: 03.03.22
  * @return mixed
  */
 function getAllArticle(){
-    $file = file_get_contents("../Model/Article.json");
+    $file = file_get_contents("../Model/article.json");
     $AllArticle = json_decode($file, true);
 
     return $AllArticle;
@@ -21,7 +21,7 @@ function getAllArticle(){
  * @return mixed|void
  */
 function getArticle($id){
-    $file = file_get_contents("../Model/Article.json");
+    $file = file_get_contents("../Model/article.json");
     $AllArticle = json_decode($file, true);
 
     foreach ($AllArticle as $i){
