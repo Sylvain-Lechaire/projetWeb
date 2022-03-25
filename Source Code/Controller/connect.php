@@ -2,7 +2,7 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider
-Version: 1.0
+Version: 1.0.1
 date: 04.02.22
 */
 
@@ -16,10 +16,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (passwordCheck($username, $password)) {
         login($username, $password);
     } else {
-        header("Location: ../View/login.php?action=erreur");
+        header("Location: ../View/Login.php?action=erreur");
 
     }
 }else{
-    header("Location: ../View/login.php");
+    header("Location: ../View/Login.php");
 }
 ?>
