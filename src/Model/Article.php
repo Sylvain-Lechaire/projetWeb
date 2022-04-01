@@ -2,12 +2,13 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider Amos Le Coq
-Version: 1.0.0
-date: 03.03.22
+Version: 1.0.1
+date: 01.04.22
 */
 
 /**
- * @return mixed
+ * @brief Get all article in the website/json file
+ * @return array all article
  */
 function getAllArticle(){
     $file = file_get_contents("../Model/article.json");
@@ -16,9 +17,11 @@ function getAllArticle(){
     return $AllArticle;
 }
 
+
 /**
- * @param $id
- * @return mixed|void
+ * @brief Get article with id
+ * @param $id int id of article
+ * @return array article concerned
  */
 function getArticle($id){
     $file = file_get_contents("../Model/article.json");

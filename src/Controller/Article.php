@@ -3,9 +3,14 @@
 Projet: Tank&Cio
 Author: Ethann Schneider
 Version: 1.0.0
-date: 04.02.22
+date: 01.04.22
 */
 
+/**
+ * @brief if article already exist
+ * @param $id string id of article
+ * @return bool true if article already exist
+ */
 function articleExist($id){
     $allArticle = getAllArticle();
     foreach ($allArticle as $item) {
@@ -16,6 +21,11 @@ function articleExist($id){
     return false;
 }
 
+/**
+ * @brief Get article and get for error
+ * @param $id string id of article
+ * @return array Getted article
+ */
 function getCheckArticle($id){
     if (isset($id)){
         if (articleExist((int)$id)){

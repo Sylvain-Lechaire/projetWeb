@@ -2,12 +2,25 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
+Version: 1.0.1
+date: 01.04.22
 */
 
 /**
- * @param $message
+ * @brief recreate user Stockage file if no exist
+ * @return void
+ */
+function reCreateStockageFile(){
+    if(!file_exists("../Model/stockage.json")){
+        $fb=fopen("../Model/stockage.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
+}
+
+/**
+ * @brief Log message in log file
+ * @param $message string message to log
  * @return void
  */
 function logMessage($message){
@@ -16,16 +29,13 @@ function logMessage($message){
 }
 
 /**
- * @param $user
- * @param $password
- * @return bool
+ * @brief check User Password is correct
+ * @param $user string username/email of user
+ * @param $password string password already hashed
+ * @return bool return true if user password is correct
  */
 function passwordCheck($user , $password){
-    if(!file_exists("../Model/stockage.json")){
-        $fb=fopen("../Model/stockage.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    reCreateStockageFile();
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 
@@ -38,15 +48,12 @@ function passwordCheck($user , $password){
 }
 
 /**
- * @param $user
- * @return Full name of users
+ * @brief Get full name of user (Real Name and Family Name)
+ * @param $user string username/email of user
+ * @return string Full name of users
  */
 function fullName($user){
-    if(!file_exists("../Model/stockage.json")){
-        $fb=fopen("../Model/stockage.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    reCreateStockageFile();
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 
@@ -58,15 +65,12 @@ function fullName($user){
 }
 
 /**
- * @param $login
- * @return bool
+ * @brief if login/mail/user already exist
+ * @param $login string username/email of user
+ * @return bool true if user already exist
  */
 function isLoginExist($login){
-    if(!file_exists("../Model/stockage.json")){
-        $fb=fopen("../Model/stockage.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    reCreateStockageFile();
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 

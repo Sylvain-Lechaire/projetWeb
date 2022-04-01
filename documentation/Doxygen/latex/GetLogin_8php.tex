@@ -1,0 +1,105 @@
+\hypertarget{GetLogin_8php}{}\doxysection{src/\+Model/\+Get\+Login.php File Reference}
+\label{GetLogin_8php}\index{src/Model/GetLogin.php@{src/Model/GetLogin.php}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GetLogin_8php_af6d9a3de672b769107108c7636714471}{re\+Create\+Stockage\+File}} ()
+\begin{DoxyCompactList}\small\item\em recreate user Stockage file if no exist \end{DoxyCompactList}\item 
+\mbox{\hyperlink{GetLogin_8php_ab4f645ef23d61413f2ec84bfdeea121b}{log\+Message}} (\$message)
+\begin{DoxyCompactList}\small\item\em Log message in log file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{GetLogin_8php_ad26fb63bfa6866a5a8d89ad8d6d5e30c}{password\+Check}} (\$user, \$password)
+\begin{DoxyCompactList}\small\item\em check User Password is correct \end{DoxyCompactList}\item 
+\mbox{\hyperlink{GetLogin_8php_a153a02b5e969fca5aad3239538cf679d}{full\+Name}} (\$user)
+\begin{DoxyCompactList}\small\item\em Get full name of user (Real Name and Family Name) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{GetLogin_8php_aa81e93c018b4c3147eebc3c86da901bb}{is\+Login\+Exist}} (\$\mbox{\hyperlink{login_8php_ad870c94a5775868891f6c50b9818d627}{login}})
+\begin{DoxyCompactList}\small\item\em if login/mail/user already exist \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{GetLogin_8php_a153a02b5e969fca5aad3239538cf679d}\label{GetLogin_8php_a153a02b5e969fca5aad3239538cf679d}} 
+\index{GetLogin.php@{GetLogin.php}!fullName@{fullName}}
+\index{fullName@{fullName}!GetLogin.php@{GetLogin.php}}
+\doxysubsubsection{\texorpdfstring{fullName()}{fullName()}}
+{\footnotesize\ttfamily full\+Name (\begin{DoxyParamCaption}\item[{}]{\$user }\end{DoxyParamCaption})}
+
+
+
+Get full name of user (Real Name and Family Name) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$user} & string username/email of user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Full name of users 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GetLogin_8php_aa81e93c018b4c3147eebc3c86da901bb}\label{GetLogin_8php_aa81e93c018b4c3147eebc3c86da901bb}} 
+\index{GetLogin.php@{GetLogin.php}!isLoginExist@{isLoginExist}}
+\index{isLoginExist@{isLoginExist}!GetLogin.php@{GetLogin.php}}
+\doxysubsubsection{\texorpdfstring{isLoginExist()}{isLoginExist()}}
+{\footnotesize\ttfamily is\+Login\+Exist (\begin{DoxyParamCaption}\item[{}]{\$login }\end{DoxyParamCaption})}
+
+
+
+if login/mail/user already exist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$login} & string username/email of user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if user already exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GetLogin_8php_ab4f645ef23d61413f2ec84bfdeea121b}\label{GetLogin_8php_ab4f645ef23d61413f2ec84bfdeea121b}} 
+\index{GetLogin.php@{GetLogin.php}!logMessage@{logMessage}}
+\index{logMessage@{logMessage}!GetLogin.php@{GetLogin.php}}
+\doxysubsubsection{\texorpdfstring{logMessage()}{logMessage()}}
+{\footnotesize\ttfamily log\+Message (\begin{DoxyParamCaption}\item[{}]{\$message }\end{DoxyParamCaption})}
+
+
+
+Log message in log file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$message} & string message to log \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GetLogin_8php_ad26fb63bfa6866a5a8d89ad8d6d5e30c}\label{GetLogin_8php_ad26fb63bfa6866a5a8d89ad8d6d5e30c}} 
+\index{GetLogin.php@{GetLogin.php}!passwordCheck@{passwordCheck}}
+\index{passwordCheck@{passwordCheck}!GetLogin.php@{GetLogin.php}}
+\doxysubsubsection{\texorpdfstring{passwordCheck()}{passwordCheck()}}
+{\footnotesize\ttfamily password\+Check (\begin{DoxyParamCaption}\item[{}]{\$user,  }\item[{}]{\$password }\end{DoxyParamCaption})}
+
+
+
+check User Password is correct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$user} & string username/email of user \\
+\hline
+{\em \$password} & string password already hashed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool return true if user password is correct 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GetLogin_8php_af6d9a3de672b769107108c7636714471}\label{GetLogin_8php_af6d9a3de672b769107108c7636714471}} 
+\index{GetLogin.php@{GetLogin.php}!reCreateStockageFile@{reCreateStockageFile}}
+\index{reCreateStockageFile@{reCreateStockageFile}!GetLogin.php@{GetLogin.php}}
+\doxysubsubsection{\texorpdfstring{reCreateStockageFile()}{reCreateStockageFile()}}
+{\footnotesize\ttfamily re\+Create\+Stockage\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+recreate user Stockage file if no exist 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

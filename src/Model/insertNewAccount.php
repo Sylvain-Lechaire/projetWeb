@@ -2,23 +2,20 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider
-Version: 1.0
-date: 18.02.22
+Version: 1.0.1
+date: 01.04.22
 */
 
 /**
- * @param $username
- * @param $hashPassword
- * @param $realName
- * @param $familyName
+ * @brief create New account in database
+ * @param $username string username/email of user
+ * @param $hashPassword string password already hashed
+ * @param $realName string Real Name of user
+ * @param $familyName string Family Name of user
  * @return bool
  */
 function newAccount($username, $hashPassword, $realName, $familyName){
-    if(!file_exists("../Model/stockage.json")){
-        $fb=fopen("../Model/stockage.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    reCreateStockageFile();
     $file = file_get_contents("../Model/stockage.json");
     $jsonLoad = json_decode($file, true);
 

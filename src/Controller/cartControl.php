@@ -3,13 +3,12 @@
 Projet: Tank&Cio
 Author: Ethann Schneider
 Version: 1.1
-date: 04.02.22
+date: 01.04.22
 */
 
 session_start();
 
 require "../Model/Cart.php";
-
 
 if (isset($_POST['type'])){
     switch ($_POST['type']){

@@ -2,13 +2,14 @@
 /*
 Projet: Tank&Cio
 Author: Ethann Schneider Amos Le Coq
-Version: 1.0.0
-date: 03.03.22
+Version: 1.0.1
+date: 01.04.22
 */
 
 /**
- * @param $username
- * @param $password
+ * @brief init session
+ * @param $username string username/email of user
+ * @param $password string password hashed of user
  * @return void
  */
 function login($username, $password){

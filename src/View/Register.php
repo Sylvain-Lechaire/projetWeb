@@ -11,6 +11,7 @@ session_start();
 if(isset($_SESSION['username']) && isset($_SESSION['password'])){
     header("Location: ../View/");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
