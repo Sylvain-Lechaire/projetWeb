@@ -20,7 +20,11 @@ if (isset($_POST['type'])){
         break;
         case 'add':
             if(isset($_POST['quantity'])){
-                insertCart($_SESSION['username'], (int) $_POST['id'],(int) $_POST['quantity']);
+                if (ArticleAlreadyInCart($_SESSION['username'], (int) $_POST['id'])){
+                    modifyQuantity($_SESSION['username'], (int) $_POST['id'], (int) $_POST['quantity']);
+                }else{
+                    insertCart($_SESSION['username'], (int) $_POST['id'],(int) $_POST['quantity']);
+                }
             }
             break;
         case 'clear':
