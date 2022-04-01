@@ -24,8 +24,51 @@ function getCart($username){
     }else{
         return $AllArticle[$username];
     }
+}
 
+/**
+ * @param $username
+ * @param $article
+ * @return bool
+ */
+function ArticleAlreadyInCart($username, $article){
+    if(!file_exists("../Model/cart.json")){
+        $fb=fopen("../Model/cart.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
+    $file = file_get_contents("../Model/cart.json");
+    $AllArticle = json_decode($file, true);
 
+    if(isset($AllArticle[$username])){
+        foreach ($AllArticle[$username] as $Art){
+            if ($Art['Product'] == $article){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function modifyQuantity($username, $article, $quantity){
+    if(!file_exists("../Model/cart.json")){
+        $fb=fopen("../Model/cart.json", "w+");
+        fwrite($fb, '[]');
+        fclose($fb);
+    }
+    $file = file_get_contents("../Model/cart.json");
+    $jsonLoad = json_decode($file, true);
+
+    if(isset($jsonLoad[$username])) {
+        for ($i=0; $i<count($jsonLoad[$username]);$i++){
+            if ($jsonLoad[$username][$i]['Product'] == $article){
+                $jsonLoad[$username][$i]['Number'] = $quantity;
+            }
+        }
+    }
+
+    $jsonUnLoad = json_encode($jsonLoad);
+    file_put_contents("../Model/cart.json", $jsonUnLoad);
 }
 
 /**
