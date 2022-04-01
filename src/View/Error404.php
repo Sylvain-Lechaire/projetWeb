@@ -13,7 +13,7 @@ session_start();
 <html lang="en">
 
   <head>
-      <title>Contact</title>
+      <title>Error 404</title>
       <?php include 'template/head.php'?>
   </head>
 
