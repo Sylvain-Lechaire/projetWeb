@@ -22,10 +22,10 @@ if (isset($_POST['username']) and isset($_POST['realName']) and isset($_POST['fa
 
                 login($username, $password);
             } else {
-                header("Location: ../View/Register.php?action=erreur&erreur=L\'utilisateur existe déjà");
+                header("Location: ../View/Register.php?action=erreur&erreur=L\'utilisateur existe deja");
             }
         } else {
-            header("Location: ../View/Register.php?action=erreur&erreur=l\'email doit être formatter juste");
+            header("Location: ../View/Register.php?action=erreur&erreur=l\'email doit etre formatter juste");
         }
 
 }else{
