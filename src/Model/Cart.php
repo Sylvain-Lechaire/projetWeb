@@ -7,15 +7,24 @@ date: 18.03.22
 */
 
 /**
- * @param $username
- * @return array|mixed
+ * @brief if cart does not exsit create one
+ * @return void
  */
-function getCart($username){
+function cartExist(){
     if(!file_exists("../Model/cart.json")){
         $fb=fopen("../Model/cart.json", "w+");
         fwrite($fb, '[]');
         fclose($fb);
     }
+}
+
+/**
+ * @brief get cart content by username
+ * @param $username string Username/Email of user
+ * @return array|mixed Cart content of user
+ */
+function getCart($username){
+    cartExist();
     $file = file_get_contents("../Model/cart.json");
     $AllArticle = json_decode($file, true);
 
@@ -27,16 +36,13 @@ function getCart($username){
 }
 
 /**
- * @param $username
- * @param $article
- * @return bool
+ * @brief If article already in class
+ * @param $username string Username/Email of user
+ * @param $article int article id
+ * @return bool true if Article in cart and false if not in cart
  */
 function ArticleAlreadyInCart($username, $article){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    cartExist();
     $file = file_get_contents("../Model/cart.json");
     $AllArticle = json_decode($file, true);
 
@@ -50,12 +56,14 @@ function ArticleAlreadyInCart($username, $article){
     return false;
 }
 
+/**
+ * @param $username string Username/Email of user
+ * @param $article int article id
+ * @param $quantity int quantity of article
+ * @return void
+ */
 function modifyQuantity($username, $article, $quantity){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    cartExist();
     $file = file_get_contents("../Model/cart.json");
     $jsonLoad = json_decode($file, true);
 
@@ -72,17 +80,14 @@ function modifyQuantity($username, $article, $quantity){
 }
 
 /**
- * @param $username
- * @param $id
- * @param $quantity
- * @return bool
+ * @brief insert Item in cart
+ * @param $username string Username/Email of user
+ * @param $id int article id
+ * @param $quantity int quantity of article
+ * @return bool return true
  */
 function insertCart($username, $id, $quantity){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    cartExist();
     $file = file_get_contents("../Model/cart.json");
     $jsonLoad = json_decode($file, true);
 
@@ -103,16 +108,13 @@ function insertCart($username, $id, $quantity){
 }
 
 /**
- * @param $username
- * @param $id
+ * @brief remove Item in cart
+ * @param $username string Username/Email of user
+ * @param $id int article id
  * @return void
  */
 function removeCart($username, $id){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    cartExist();
     $filePath = "../Model/cart.json";
     $file = file_get_contents($filePath);
     $Article = json_decode($file, true);
@@ -135,15 +137,12 @@ function removeCart($username, $id){
 }
 
 /**
- * @param $username
+ * @brief Clear user cart
+ * @param $username string Username/Email of user
  * @return void
  */
 function clearUserCart($username){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
-        fwrite($fb, '[]');
-        fclose($fb);
-    }
+    cartExist();
     $filePath = "../Model/cart.json";
     $file = file_get_contents($filePath);
     $Article = json_decode($file, true);

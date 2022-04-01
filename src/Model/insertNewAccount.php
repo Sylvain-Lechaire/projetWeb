@@ -7,10 +7,11 @@ date: 18.02.22
 */
 
 /**
- * @param $username
- * @param $hashPassword
- * @param $realName
- * @param $familyName
+ * @brief Create a new account in dba
+ * @param $username string Username/mail of user
+ * @param $hashPassword string Hash password already Hashed
+ * @param $realName string Firstname of user
+ * @param $familyName string Family of user
  * @return bool
  */
 function newAccount($username, $hashPassword, $realName, $familyName){

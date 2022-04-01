@@ -23,9 +23,11 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 	<link rel="stylesheet" type="text/css" href="vendor/icon-font.css">
 	<link rel="stylesheet" type="text/css" href="vendor/util.css">
 	<link rel="stylesheet" type="text/css" href="vendor/main.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script>
         function erreur(erreur){
-            alert(erreur)
+            document.getElementById("erreur").innerText = erreur;
+            document.getElementById("erreur").removeAttribute("hidden");
         }
     </script>
 
@@ -37,10 +39,12 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
         }
     }
 ?>">
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">Login</span>
+                <div class="alert alert-danger" role="alert" id="erreur" hidden></div>
 				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="../Controller/connect.php">
 					<div class="wrap-input100 validate-input" data-validate="Enter username">
 						<input class="input100" type="email" name="username" placeholder="Email / Username" required>

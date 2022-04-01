@@ -7,7 +7,8 @@ date: 04.02.22
 */
 
 /**
- * @param $message
+ * @brief logMessage
+ * @param $message string message to log
  * @return void
  */
 function logMessage($message){
@@ -16,9 +17,10 @@ function logMessage($message){
 }
 
 /**
- * @param $user
- * @param $password
- * @return bool
+ * @brief Check if username correspond to password
+ * @param $user string username/email of user
+ * @param $password string password already hash
+ * @return bool true if user already in database else false
  */
 function passwordCheck($user , $password){
     if(!file_exists("../Model/stockage.json")){
@@ -38,8 +40,9 @@ function passwordCheck($user , $password){
 }
 
 /**
- * @param $user
- * @return Full name of users
+ * @brief get user real name and family name
+ * @param $user string username/email of user
+ * @return string Full name of users
  */
 function fullName($user){
     if(!file_exists("../Model/stockage.json")){
@@ -58,8 +61,9 @@ function fullName($user){
 }
 
 /**
- * @param $login
- * @return bool
+ * @brief if login already exist
+ * @param $login string username/email of user
+ * @return bool if it exist return true if not return false
  */
 function isLoginExist($login){
     if(!file_exists("../Model/stockage.json")){
