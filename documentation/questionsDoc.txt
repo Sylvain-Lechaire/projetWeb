@@ -1,3 +1,0 @@
-SLE: pour les scénarios, la réaction doit être par rapport a quoi ? (MVC, site Web, ou serveur ?)
-réponse de Mr Benzonana: du côté site web
-SLE: pour les scénarios, ya que Acheter naviguer et se connecter ?
