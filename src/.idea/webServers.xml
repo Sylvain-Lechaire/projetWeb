@@ -2,12 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="5a790801-95f1-47b4-b3e6-11ce78f885eb" name="in Place">
-        <fileTransfer accessType="LOCAL" port="0">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-        </fileTransfer>
+      <webServer id="5a790801-95f1-47b4-b3e6-11ce78f885eb" name="in Place" url="http://localhost:8079">
+        <fileTransfer accessType="LOCAL" port="0" />
       </webServer>
     </option>
   </component>

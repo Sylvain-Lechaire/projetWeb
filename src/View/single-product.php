@@ -9,7 +9,7 @@ date: 04.02.22
 session_start();
 
 require '../Model/Article.php';
-require '../Controller/Article.php';
+require '../Controller/article.php';
 
 $AllArticle = getAllArticle();
 
@@ -72,7 +72,7 @@ https://www.tooplate.com/view/2114-pixie
               <h6>$<?= $article['price'] ?></h6>
               <p><?= $article['description'] ?></p>
               <span><?= $article['quantityLeft'] ?> left on stock</span>
-              <form action="../Controller/cartControl.php" method="post">
+              <form action="../Controller/cart.php" method="post">
                 <label for="quantity">Quantity:</label>
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
                 	onfocus="if(this.value == '1') { this.value = ''; }" 

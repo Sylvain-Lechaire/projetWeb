@@ -19,7 +19,7 @@ session_start();
 
   <body>
 
-  <?php include "template/header.php";?>
+  <?php include "template/header.php"; ?>
 
     <!-- Page Content -->
     <!-- About Page Starts Here -->
@@ -32,7 +32,7 @@ session_start();
               <h1>Contact Us</h1>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md- 6">
             <div id="map">
             		<!-- How to change your own map point
                            1. Go to Google Maps

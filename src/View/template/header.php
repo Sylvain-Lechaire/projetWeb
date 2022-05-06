@@ -28,7 +28,7 @@
                     echo '</li>';
                 }else{
                     echo '<li class="nav-item">';
-                    echo '    <a class="nav-link" href="Login.php">Login</a>';
+                    echo '    <a class="nav-link" href="login.php">Login</a>';
                     echo '</li>';
                 }
                 ?>

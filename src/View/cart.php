@@ -82,7 +82,7 @@ $price = 0;
                             </td>
                             <td><a href="single-product.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
                             <td>
-                                <form action="../Controller/cartControl.php" method="post" id="ChangeNumberForm<?= $i['Product'] ?>">
+                                <form action="../Controller/cart.php" method="post" id="ChangeNumberForm<?= $i['Product'] ?>">
                                     <input name="quantity" type="quantity" class="quantity-text" id="quantity"
                                            onfocus="if(this.value == '1') { this.value = ''; }"
                                            onBlur="if(this.value == '') { this.value = '1';}"
@@ -95,7 +95,7 @@ $price = 0;
                             <td>CHF <?= $item['price'] ?></td>
                             <td>CHF <?= $item['price'] * $i['Number'] ?></td>
                             <td width="20">
-                                <form action="../Controller/cartControl.php" method="post">
+                                <form action="../Controller/cart.php" method="post">
                                     <input type="text" name="type" value="delete" hidden>
                                     <input type="number" name="id" value="<?= $i['Product'] ?>" hidden>
                                     <input type="submit" value="❌">
@@ -111,7 +111,7 @@ $price = 0;
                         </tr>
                         </tfoot>
                     </table>
-                    <form action="../Controller/cartControl.php" method="post">
+                    <form action="../Controller/cart.php" method="post">
                         <input type="text" name="type" value="clear" hidden>
                         <input type="submit" value="Vider le Panier">
                     </form>

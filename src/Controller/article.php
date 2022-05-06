@@ -21,9 +21,9 @@ function getCheckArticle($id){
         if (articleExist((int)$id)){
             return getArticle((int)$id);
         }else{
-            header("Location: ../View/products.php");
+            require 'View/products.php';
         }
     }else{
-        header("Location: ../View/products.php");
+        require 'View/products.php';
     }
 }
