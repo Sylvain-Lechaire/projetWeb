@@ -1,49 +1,29 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider Amos Le Coq
-Version: 1.1.1
-date: 03.03.22
-*/
-
-session_start();
+/**
+ * @file      View/single-product.php
+ * @brief     This file is to display register page
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
 if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-    header("Location: ../View/");
+    header("Location: index.php?action=home");
 }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>Register</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="assets/images/header-logo.png" />
-	<link rel="stylesheet" type="text/css" href="vendor/icon-font.css">
-	<link rel="stylesheet" type="text/css" href="vendor/util.css">
-	<link rel="stylesheet" type="text/css" href="vendor/main.css">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript">
-        function Validate() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            if (password != confirmPassword) {
-                document.getElementById("erreur").innerText = "Les deux mots de passe ne correspondent pas";
-                document.getElementById("erreur").removeAttribute("hidden");
-                return false;
-            }
-            return true;
-        }
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/images/header-logo.png" />
+    <link rel="stylesheet" type="text/css" href="../vendor/icon-font.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/util.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/main.css">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        function erreur(erreur){
-            document.getElementById("erreur").innerText = erreur;
-            document.getElementById("erreur").removeAttribute("hidden");
-        }
-    </script>
 </head>
-
-
 <body onload="<?php
 if (isset($_GET['action']) && isset($_GET['erreur'])){
     if($_GET['action']=='erreur'){
@@ -51,12 +31,29 @@ if (isset($_GET['action']) && isset($_GET['erreur'])){
     }
 }
 ?>">
+    <script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        if (password != confirmPassword) {
+            document.getElementById("erreur").innerText = "Les deux mots de passe ne correspondent pas";
+            document.getElementById("erreur").removeAttribute("hidden");
+            return false;
+        }
+        return true;
+    }
+
+    function erreur(erreur){
+        document.getElementById("erreur").innerText = erreur;
+        document.getElementById("erreur").removeAttribute("hidden");
+    }
+    </script>
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('vendor/bg.jpg');">
+		<div class="container-login100" style="background-image: url('../vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">New Account</span>
-                <div class="alert alert-danger" role="alert" id="erreur" hidden>fefe</div>
-				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="../Controller/register.php">
+                <div class="alert alert-danger" role="alert" id="erreur" hidden></div>
+				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="?action=register">
 					<div class="wrap-input100 validate-input" data-validate="Enter username">
 						<input class="input100" type="email" name="username" placeholder="Email" required>
 						<span class="focus-input100" data-placeholder=""></span>
@@ -66,7 +63,7 @@ if (isset($_GET['action']) && isset($_GET['erreur'])){
                         <span class="focus-input100" data-placeholder=""></span>
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Enter secondName">
-                        <input class="input100" type="text" name="familyName" placeholder="second name" required>
+                        <input class="input100" type="text" name="surname" placeholder="second name" required>
                         <span class="focus-input100" data-placeholder=""></span>
                     </div>
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -81,12 +78,13 @@ if (isset($_GET['action']) && isset($_GET['erreur'])){
 						<button onclick="return Validate()" class="login100-form-btn">Register</button>
 					</div>
                     <div class="container-login100-form-btn m-t-32">
-                        <p>or <a href="login.php"> Login</a></p>
+                        <p>or <a href="?action=loginPage"> Login</a></p>
                     </div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<div id="dropDownSelect1"></div>
+<div id="dropDownSelect1"></div>
 </body>
 </html>
+

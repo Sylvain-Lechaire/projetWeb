@@ -1,25 +1,15 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/error404.php
+ * @brief     This file is display error page
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = "Error 404";
+
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <title>Error 404</title>
-      <?php include 'template/head.php'?>
-  </head>
-
-  <body>
-
-  <?php include "template/header.php";?>
 
     <!-- Page Content -->
     <!-- About Page Starts Here -->
@@ -30,9 +20,7 @@ session_start();
     </div>
     <!-- About Page Ends Here -->
 
-  <?php include "template/footer.html";?>
-
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>
