@@ -2,7 +2,7 @@
 /**
  * @file      index.php
  * @brief     This file is the rooter managing the link with controllers.
- * @author    Created by Ethann.SCHNEIDER and Amos.LeCoq
+ * @author    Created by Ethann.SCHNEIDER and Amos.LECOQ
  * @version   13-MAY-2022
  */
 
@@ -21,37 +21,31 @@ if (isset($_GET['action'])) {
             home();
             break;
         case 'login':
-            login($_POST['username'] ,$_POST['password']);
-            break;
-        case 'loginPage':
-            loginPage();
+            login($_POST);
             break;
         case 'register':
-            register($_POST['username'], $_POST['realName'], $_POST['surname'],$_POST['password']);
-            break;
-        case 'registerPage':
-            registerPage();
+            register($_POST);
             break;
         case 'logout':
             logout();
             break;
         case 'cart':
-            cart($_POST['type'], $_POST['id'], $_POST['quantity']);
+            cart($_POST);
             break;
         case 'showCart':
             showCart();
             break;
         case 'products':
-            getCheckAllArticle();
+            getProducts();
             break;
-        case 'singleProduct':
-            getCheckArticle($_GET['id']);
+        case 'product':
+            getProduct($_GET['id']);
             break;
         case 'about':
             about();
             break;
         default:
-            lost();
+            home(true);
     }
 } else {
     home();
