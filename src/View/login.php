@@ -23,18 +23,16 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 	<link rel="stylesheet" type="text/css" href="../vendor/main.css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script>
-        function erreur(erreur){
-            document.getElementById("erreur").innerText = erreur;
-            document.getElementById("erreur").removeAttribute("hidden");
+        function error(errors){
+            document.getElementById("error").innerText = errors;
+            document.getElementById("error").removeAttribute("hidden");
         }
     </script>
 
 </head>
 <body onload="<?php
-    if (isset($_GET['action']) && isset($_GET['erreur'])){
-        if($_GET['action']=='erreur'){
-            echo 'erreur(\''.$_GET['erreur'].'\');';
-        }
+    if (isset($error)){
+        echo "error('".$error."');";
     }
 ?>">
 
@@ -42,7 +40,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 		<div class="container-login100" style="background-image: url('../vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">Login</span>
-                <div class="alert alert-danger" role="alert" id="erreur" hidden></div>
+                <div class="alert alert-danger" role="alert" id="error" hidden></div>
 				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="?action=login">
 					<div class="wrap-input100 validate-input" data-validate="Enter username">
 						<input class="input100" type="email" name="username" placeholder="Email / Username" required>

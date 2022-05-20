@@ -25,10 +25,8 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 
 </head>
 <body onload="<?php
-if (isset($_GET['action']) && isset($_GET['erreur'])){
-    if($_GET['action']=='erreur'){
-        echo 'erreur(\''.$_GET['erreur'].'\');';
-    }
+if (isset($error)){
+    echo "error('".$error."')";
 }
 ?>">
     <script type="text/javascript">
@@ -36,23 +34,23 @@ if (isset($_GET['action']) && isset($_GET['erreur'])){
         var password = document.getElementById("password").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
         if (password != confirmPassword) {
-            document.getElementById("erreur").innerText = "Les deux mots de passe ne correspondent pas";
-            document.getElementById("erreur").removeAttribute("hidden");
+            document.getElementById("error").innerText = "Les deux mots de passe ne correspondent pas";
+            document.getElementById("error").removeAttribute("hidden");
             return false;
         }
         return true;
     }
 
-    function erreur(erreur){
-        document.getElementById("erreur").innerText = erreur;
-        document.getElementById("erreur").removeAttribute("hidden");
+    function error(error){
+        document.getElementById("error").innerText = error;
+        document.getElementById("error").removeAttribute("hidden");
     }
     </script>
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">New Account</span>
-                <div class="alert alert-danger" role="alert" id="erreur" hidden></div>
+                <div class="alert alert-danger" role="alert" id="error" hidden></div>
 				<form class="login100-form validate-form p-b-33 p-t-5" method="post" action="?action=register">
 					<div class="wrap-input100 validate-input" data-validate="Enter username">
 						<input class="input100" type="email" name="username" placeholder="Email" required>

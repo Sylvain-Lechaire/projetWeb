@@ -26,9 +26,11 @@ function login($username, $passwordUnHashed){
 
             header('Location: ?');
         } else {
+            $error = "Wrong username or password";
             require 'View/login.php';
         }
     }else{
+        $error = "Please fill in all the fields";
         require 'View/login.php';
     }
 
@@ -66,9 +68,11 @@ function register($username, $realName, $surname, $passwordUnHashed){
 
             header('Location: ?');
         } else {
+            $error = "This email is already used";
             require 'View/register.php';
         }
     } else {
+        $error = "Please enter a valid email";
         require 'View/register.php';
     }
 

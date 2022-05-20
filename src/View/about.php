@@ -52,12 +52,6 @@ ob_start();
     </div>
     <!-- About Page Ends Here -->
 
-  <?php include "template/footer.html";?>
-
-  </body>
-
-</html>
-
 <?php
 $content = ob_get_clean();
 require "View/gabarit.php";
