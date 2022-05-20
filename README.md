@@ -30,9 +30,9 @@ Contact us by this email : Amos.le-coq@cpnv.ch
 1. Create an issue
 2. Tell us your idea
 ### Authors
-Sylvain Lechaire
-Ethann Schneider
-Nicolas Glassey
+Sylvain Lechaire\
+Ethann Schneider\
+Nicolas Glassey\
 Amos Le Coq
 ### Licence
 [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.fr.html)
