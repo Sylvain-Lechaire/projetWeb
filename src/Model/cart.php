@@ -1,18 +1,18 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 18.03.22
-*/
+/**
+ * @file      Model/cart.php
+ * @brief     This file is to get the cart.
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
 /**
  * @brief if cart does not exsit create one
  * @return void
  */
 function cartExist(){
-    if(!file_exists("../Model/cart.json")){
-        $fb=fopen("../Model/cart.json", "w+");
+    if(!file_exists("Model/cart.json")){
+        $fb=fopen("Model/cart.json", "w+");
         fwrite($fb, '[]');
         fclose($fb);
     }
@@ -25,7 +25,7 @@ function cartExist(){
  */
 function getCart($username){
     cartExist();
-    $file = file_get_contents("../Model/cart.json");
+    $file = file_get_contents("Model/cart.json");
     $AllArticle = json_decode($file, true);
 
     if(!isset($AllArticle[$username])){
@@ -41,9 +41,9 @@ function getCart($username){
  * @param $article int article id
  * @return bool true if Article in cart and false if not in cart
  */
-function ArticleAlreadyInCart($username, $article){
+function articleAlreadyInCart($username, $article){
     cartExist();
-    $file = file_get_contents("../Model/cart.json");
+    $file = file_get_contents("Model/cart.json");
     $AllArticle = json_decode($file, true);
 
     if(isset($AllArticle[$username])){
@@ -64,7 +64,7 @@ function ArticleAlreadyInCart($username, $article){
  */
 function modifyQuantity($username, $article, $quantity){
     cartExist();
-    $file = file_get_contents("../Model/cart.json");
+    $file = file_get_contents("Model/cart.json");
     $jsonLoad = json_decode($file, true);
 
     if(isset($jsonLoad[$username])) {
@@ -76,7 +76,7 @@ function modifyQuantity($username, $article, $quantity){
     }
 
     $jsonUnLoad = json_encode($jsonLoad);
-    file_put_contents("../Model/cart.json", $jsonUnLoad);
+    file_put_contents("Model/cart.json", $jsonUnLoad);
 }
 
 /**
@@ -88,7 +88,7 @@ function modifyQuantity($username, $article, $quantity){
  */
 function insertCart($username, $id, $quantity){
     cartExist();
-    $file = file_get_contents("../Model/cart.json");
+    $file = file_get_contents("Model/cart.json");
     $jsonLoad = json_decode($file, true);
 
     $article = array(
@@ -103,7 +103,7 @@ function insertCart($username, $id, $quantity){
     }
 
     $jsonUnLoad = json_encode($jsonLoad);
-    file_put_contents("../Model/cart.json", $jsonUnLoad);
+    file_put_contents("Model/cart.json", $jsonUnLoad);
     return true;
 }
 
@@ -115,7 +115,7 @@ function insertCart($username, $id, $quantity){
  */
 function removeCart($username, $id){
     cartExist();
-    $filePath = "../Model/cart.json";
+    $filePath = "Model/cart.json";
     $file = file_get_contents($filePath);
     $Article = json_decode($file, true);
     $ArticleUser = $Article[$username];
@@ -143,7 +143,7 @@ function removeCart($username, $id){
  */
 function clearUserCart($username){
     cartExist();
-    $filePath = "../Model/cart.json";
+    $filePath = "Model/cart.json";
     $file = file_get_contents($filePath);
     $Article = json_decode($file, true);
 

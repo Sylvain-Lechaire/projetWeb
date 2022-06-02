@@ -1,30 +1,31 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.1
-date: 04.02.22
-*/
+/**
+ * @file      Controller/cart.php
+ * @brief     This file is to control cart
+ * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
+ * @version   13-MAY-2022
+ */
 
-session_start();
+/**
+ * @brief This function is to use the cart
+ * @param $type string Type of action
+ * @param $id int Article id
+ * @param $quantity int Quantity of article
+ * @return void
+ */
+function cart($type, $id, $quantity){
+    require "Model/cart.php";
+    require 'Model/article.php';
 
-require "../Model/Cart.php";
-
-
-if (isset($_POST['type'])){
-    switch ($_POST['type']){
+    switch ($type){
         case 'delete':
-            if (isset($_POST['id'])) {
-                removeCart($_SESSION['username'], (int) $_POST['id']);
-            }
-        break;
+            removeCart($_SESSION['username'], (int) $id);
+            break;
         case 'add':
-            if(isset($_POST['quantity'])){
-                if (ArticleAlreadyInCart($_SESSION['username'], (int) $_POST['id'])){
-                    modifyQuantity($_SESSION['username'], (int) $_POST['id'], (int) $_POST['quantity']);
-                }else{
-                    insertCart($_SESSION['username'], (int) $_POST['id'],(int) $_POST['quantity']);
-                }
+            if (articleAlreadyInCart($_SESSION['username'], (int) $id)){
+                modifyQuantity($_SESSION['username'], (int) $id, (int) $quantity);
+            }else{
+                insertCart($_SESSION['username'], (int) $id,(int) $quantity);
             }
             break;
         case 'clear':
@@ -33,8 +34,10 @@ if (isset($_POST['type'])){
         default:
             break;
     }
-    header("Location: ../View/cart.php");
 
+    $_SESSION['cart'] = getCart($_SESSION['username']);
+    $allArticle = getAllArticle();
+    require 'View/cart.php';
 }
 
 

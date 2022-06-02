@@ -1,30 +1,18 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/home.php
+ * @brief     This file is to display the home page
+ * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = "Acceuil";
 
+ob_start();
 
-require '../Model/Article.php';
-
-$AllArticle = getAllArticle();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
-      <title>Acceuil</title>
-      <?php include 'template/head.php'?>
-  </head>
-
-  <body>
-    
-    <?php include "template/header.php";?>
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -37,7 +25,7 @@ $AllArticle = getAllArticle();
               <div class="line-dec"></div>
                 <p>
                     Welcome to our website
-                    <?php if (isset($_SESSION['username']) && isset($_SESSION['password'])) echo $_SESSION['Fullname']; ?>
+                    <?php if (isset($_SESSION['username'])) echo $_SESSION['Fullname']; ?>
                     <br> We are a tank society We love tank
                 </p>
               <div class="main-button">
@@ -62,8 +50,8 @@ $AllArticle = getAllArticle();
           </div>
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
-                <?php foreach ($AllArticle as $i): ?>
-                    <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+                <?php foreach ($allArticle as $i): ?>
+                    <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
                         <div class="featured-item">
                             <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
                             <h4><?= $i['name'] ?></h4>
@@ -78,10 +66,7 @@ $AllArticle = getAllArticle();
     </div>
     <!-- Featred Ends Here -->
 
-
-    <?php include "template/footer.html";?>
-
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>

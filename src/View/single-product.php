@@ -1,39 +1,15 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/single-product.php
+ * @brief     This file is display single product page
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = 'Product Detail |'.$article['name'];
 
-require '../Model/Article.php';
-require '../Controller/Article.php';
-
-$AllArticle = getAllArticle();
-
-$article = getCheckArticle($_GET['id']);
-
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <title>Product Detail | <?= $article['name'] ?></title>
-      <?php include 'template/head.php'?>
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/flex-slider.css">
-<!--
-Tooplate 2114 Pixie
-https://www.tooplate.com/view/2114-pixie
--->
-  </head>
-
-  <body>
-
-  <?php include "template/header.php";?>
 
     <!-- Page Content -->
     <!-- Single Starts Here -->
@@ -72,7 +48,7 @@ https://www.tooplate.com/view/2114-pixie
               <h6>$<?= $article['price'] ?></h6>
               <p><?= $article['description'] ?></p>
               <span><?= $article['quantityLeft'] ?> left on stock</span>
-              <form action="../Controller/cartControl.php" method="post">
+              <form action="?action=cart" method="post">
                 <label for="quantity">Quantity:</label>
                 <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
                 	onfocus="if(this.value == '1') { this.value = ''; }" 
@@ -110,8 +86,8 @@ https://www.tooplate.com/view/2114-pixie
           </div>
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
-                <?php foreach ($AllArticle as $i): ?>
-                    <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+                <?php foreach ($allArticle as $i): ?>
+                    <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
                         <div class="featured-item">
                             <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
                             <h4><?= $i['name'] ?></h4>
@@ -126,11 +102,7 @@ https://www.tooplate.com/view/2114-pixie
     </div>
     <!-- Similar Ends Here -->
 
-  <?php include "template/footer.html";?>
-  <script src="assets/js/isotope.js"></script>
-  <script src="assets/js/flex-slider.js"></script>
-
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>
