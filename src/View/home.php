@@ -29,7 +29,7 @@ ob_start();
                     <br> We are a tank society We love tank
                 </p>
               <div class="main-button">
-                <a href="products.php">Order Now!</a>
+                <a href="?action=products">Order Now!</a>
               </div>
             </div>
           </div>

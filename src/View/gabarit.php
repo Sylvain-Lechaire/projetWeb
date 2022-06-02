@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" href="../assets/images/header-logo.png" />
+    <link rel="icon" type="image/png" href="../Assets/images/header-logo.png" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/tooplate-main.css">
-    <link rel="stylesheet" href="../assets/css/owl.css">
-    <link rel="stylesheet" href="../assets/css/owl.css">
-    <link rel="stylesheet" href="../assets/css/flex-slider.css">
+    <link rel="stylesheet" href="../Assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../Assets/css/tooplate-main.css">
+    <link rel="stylesheet" href="../Assets/css/owl.css">
+    <link rel="stylesheet" href="../Assets/css/owl.css">
+    <link rel="stylesheet" href="../Assets/css/flex-slider.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="?"><img src="../assets/images/header-logo.png" alt=""></a>
+        <a class="navbar-brand" href="?"><img src="../Assets/images/header-logo.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="logo">
-                    <img src="../assets/images/header-logo.png" alt="">
+                    <img src="../Assets/images/header-logo.png" alt="">
                 </div>
             </div>
             <div class="col-md-12">
@@ -118,13 +118,13 @@
 
 
 <!-- Bootstrap core JavaScript -->
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../Vendor/jquery/jquery.min.js"></script>
+<script src="../Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 <!-- Additional Scripts -->
-<script src="../assets/js/custom.js"></script>
-<script src="../assets/js/owl.js"></script>
+<script src="../Assets/js/custom.js"></script>
+<script src="../Assets/js/owl.js"></script>
 
 
 <script language = "text/Javascript">
@@ -138,8 +138,8 @@
     }
 </script>
 
-<script src="../assets/js/isotope.js"></script>
-<script src="../assets/js/flex-slider.js"></script>
+<script src="../Assets/js/isotope.js"></script>
+<script src="../Assets/js/flex-slider.js"></script>
 
 
 </body>

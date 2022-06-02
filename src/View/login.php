@@ -17,11 +17,11 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="../assets/images/header-logo.png" />
-	<link rel="stylesheet" type="text/css" href="../vendor/icon-font.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/util.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/main.css">
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../Assets/images/header-logo.png" />
+	<link rel="stylesheet" type="text/css" href="../Vendor/icon-font.css">
+	<link rel="stylesheet" type="text/css" href="../Vendor/util.css">
+	<link rel="stylesheet" type="text/css" href="../Vendor/main.css">
+    <link href="../Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script>
         function error(errors){
             document.getElementById("error").innerText = errors;
@@ -37,7 +37,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 ?>">
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('../vendor/bg.jpg');">
+		<div class="container-login100" style="background-image: url('../Vendor/bg.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">Login</span>
                 <div class="alert alert-danger" role="alert" id="error" hidden></div>
