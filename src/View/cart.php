@@ -63,7 +63,7 @@ ob_start();
                             <td class="cart-img">
                                 <img src="../<?= $item['image'] ?>" height="150">
                             </td>
-                            <td><a href="single-product.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
+                            <td><a href="singleProduct.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
                             <td>
                                 <form action="?action=cart" method="post" id="ChangeNumberForm<?= $i['Product'] ?>">
                                     <input name="quantity" type="quantity" class="quantity-text" id="quantity"

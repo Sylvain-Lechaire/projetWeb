@@ -1,6 +1,6 @@
 <?php
 /**
- * @file      View/single-product.php
+ * @file      View/singleProduct.php
  * @brief     This file is to display register page
  * @author    Created by Ethann.SCHNEIDER
  * @version   13-MAY-2022

@@ -31,7 +31,7 @@ function getCheckArticle($id){
     if (articleExist((int)$id)){
         $article = getArticle((int)$id);
         $allArticle = getAllArticle();
-        require 'View/single-product.php';
+        require 'View/singleProduct.php';
     }else{
         require 'View/products.php';
     }
