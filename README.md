@@ -1,7 +1,8 @@
 # **Tank site**
 
 ### Description
-It's a website for collector to buy tank we are a tank compagnies.
+It's a website for collector to buy tanks.\
+We are a tanks company.
 
 ---
 
