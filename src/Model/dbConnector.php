@@ -23,7 +23,7 @@ function dbConnector(){
 /**
  * @brief This class is to make a select request
  * @param $query string The query to execute
- * @return array|false array of the result of the query or false if the query failed
+ * @return array|string array of the result of the query or false if the query failed
  */
 function querySelect($query){
     try {
@@ -37,7 +37,6 @@ function querySelect($query){
 
         return $resultAll;
     } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
         return false;
     }
 }
@@ -45,7 +44,7 @@ function querySelect($query){
 /**
  * @brief This class is to make a insert request
  * @param $query string The query to execute
- * @return bool true if the query succeeded, false if the query failed
+ * @return bool|string true if the query succeeded, false if the query failed
  */
 function queryInsert($query){
     try {
@@ -57,9 +56,6 @@ function queryInsert($query){
         $db = null;
         return true;
     }catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
         return false;
     }
 }
-
-dbConnector();
