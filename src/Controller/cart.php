@@ -3,39 +3,38 @@
  * @file      Controller/cart.php
  * @brief     This file is to control cart
  * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
- * @version   13-MAY-2022
+ * @version   10-JUNE-2022
  */
 
 /**
  * @brief This function is to use the cart
- * @param $type string Type of action
- * @param $id int Article id
- * @param $quantity int Quantity of article
+ * @param $post array The post array
  * @return void
  */
-function cart($type, $id, $quantity){
-    require "Model/cart.php";
+function cart($post){
     require 'Model/article.php';
 
-    switch ($type){
-        case 'delete':
-            removeCart($_SESSION['username'], (int) $id);
-            break;
-        case 'add':
-            if (articleAlreadyInCart($_SESSION['username'], (int) $id)){
-                modifyQuantity($_SESSION['username'], (int) $id, (int) $quantity);
-            }else{
-                insertCart($_SESSION['username'], (int) $id,(int) $quantity);
-            }
-            break;
-        case 'clear':
-            clearUserCart($_SESSION['username']);
-            break;
-        default:
-            break;
+    if(isset($post['id']) && isset($post['type'])){
+        $id = $post['id'];
+        $type = $post['type'];
+        switch ($type){
+            case 'delete':
+                if (($key = array_search($id, $_SESSION['cart'])) !== false) {
+                    unset($_SESSION['cart'][$key]);
+                }
+                break;
+            case 'add':
+                array_push($_SESSION['cart'], $id);
+                break;
+            case 'clear':
+                $_SESSION['cart'] = [];
+                break;
+            default:
+                break;
+        }
     }
 
-    $_SESSION['cart'] = getCart($_SESSION['username']);
+
     $allArticle = getAllArticle();
     require 'View/cart.php';
 }

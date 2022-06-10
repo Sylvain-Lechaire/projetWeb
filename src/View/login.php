@@ -54,7 +54,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){
 						<button class="login100-form-btn">Login</button>
 					</div>
                     <div class="container-login100-form-btn m-t-32">
-                        <p>or <a href="?action=registerPage"> Register</a></p>
+                        <p>or <a href="?action=register"> Register</a></p>
                     </div>
 				</form>
 			</div>

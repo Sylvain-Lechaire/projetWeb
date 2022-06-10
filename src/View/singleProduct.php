@@ -3,10 +3,10 @@
  * @file      View/singleProduct.php
  * @brief     This file is display single product page
  * @author    Created by Ethann.SCHNEIDER
- * @version   13-MAY-2022
+ * @version   10-JUNE-2022
  */
 
-$title = 'Product Detail |'.$article['name'];
+$title = 'Product Detail | '.$article['name'];
 
 ob_start();
 ?>

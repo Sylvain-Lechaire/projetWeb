@@ -8,7 +8,7 @@
 
 
 if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-    header("Location: index.php?action=home");
+    header("Location: ?action=home");
 }
 
 $num = 0;
@@ -46,41 +46,28 @@ ob_start();
                             <th>N°</th>
                             <th>Picture</th>
                             <th>Name</th>
-                            <th>Number</th>
-                            <th>Unit Price</th>
                             <th>Price</th>
                         </tr>
                         </thead>
 
                         <?php foreach ($_SESSION['cart'] as $i): ?>
                         <?php
-                            $item = getArticle($i['Product']);
+                            $item = getArticle($i);
                             $num++;
-                            $price += $item['price'] * $i['Number'];
+                            $price += $item['price'];
                         ?>
                         <tr>
                             <td><?= $num ?></td>
                             <td class="cart-img">
-                                <img src="../<?= $item['image'] ?>" height="150">
+                                <img src="Assets/images/<?= $item['imageName'] ?>" height="150">
                             </td>
-                            <td><a href="singleProduct.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
-                            <td>
-                                <form action="?action=cart" method="post" id="ChangeNumberForm<?= $i['Product'] ?>">
-                                    <input name="quantity" type="quantity" class="quantity-text" id="quantity"
-                                           onfocus="if(this.value == '1') { this.value = ''; }"
-                                           onBlur="if(this.value == '') { this.value = '1';}"
-                                           value="<?= $i["Number"] ?>" max="<?= $item['quantityLeft'] ?>" onchange="document.getElementById('ChangeNumberForm<?= $i['Product'] ?>').submit();">
-                                    <input type="submit" class="button" value="Change" hidden>
-                                    <input type="text" name="type" value="add" hidden>
-                                    <input type="number" name="id" value="<?= $item['ProductId'] ?>" hidden>
-                                </form>
-                            </td>
+                            <td><a href="singleProduct.php?id=<?= $item['productId'] ?>"><?= $item['name'] ?></a></td>
+
                             <td>CHF <?= $item['price'] ?></td>
-                            <td>CHF <?= $item['price'] * $i['Number'] ?></td>
                             <td width="20">
                                 <form action="?action=cart" method="post">
                                     <input type="text" name="type" value="delete" hidden>
-                                    <input type="number" name="id" value="<?= $i['Product'] ?>" hidden>
+                                    <input type="number" name="id" value="<?= $i ?>" hidden>
                                     <input type="text" name="quantity" value="0" hidden>
                                     <input type="submit" value="❌">
                                 </form>
@@ -90,7 +77,7 @@ ob_start();
 
                         <tfoot>
                         <tr>
-                            <td colspan="5">Total : </td>
+                            <td colspan="3">Total : </td>
                             <td>CHF <?= $price ?></td>
                         </tr>
                         </tfoot>
@@ -126,9 +113,9 @@ ob_start();
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme">
                     <?php foreach ($allArticle as $i): ?>
-                        <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
+                        <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                             <div class="featured-item">
-                                <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                                <img src="Assets/images/<?= $i['imageName'] ?>" alt="Item <?= $i['productId'] ?>">
                                 <h4><?= $i['name'] ?></h4>
                                 <h6>$ <?= $i['price'] ?></h6>
                             </div>

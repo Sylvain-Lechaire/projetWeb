@@ -76,7 +76,7 @@ if (isset($error)){
 						<button onclick="return Validate()" class="login100-form-btn">Register</button>
 					</div>
                     <div class="container-login100-form-btn m-t-32">
-                        <p>or <a href="?action=loginPage"> Login</a></p>
+                        <p>or <a href="?action=login"> Login</a></p>
                     </div>
 				</form>
 			</div>

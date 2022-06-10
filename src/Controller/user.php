@@ -3,26 +3,26 @@
  * @file      Controller/user.php
  * @brief     This file is to control user setting
  * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
- * @version   13-MAY-2022
+ * @version   10-JUNE-2022
  */
 
 /**
  * @brief Check user information (password) and set the session variables
- * @param $username string username/email of user
- * @param $passwordUnHashed string password of user not hashed
+ * @param $post array The post array
  * @return null
  */
-function login($username, $passwordUnHashed){
+function login($post){
     require 'Model/user.php';
-    require 'Model/cart.php';
 
-    if (isset($username) && isset($passwordUnHashed)) {
-        $password = hash("sha256", $passwordUnHashed);
+    if(isset($post['username']) && isset($post['password'])){
+        echo "test";
+        $username = $post['username'];
+        $password = hash("sha256", $post['password']);
 
         if (passwordCheck($username, $password)) {
             $_SESSION['username'] = $username;
             $_SESSION['Fullname'] = fullName($username);
-            $_SESSION['cart'] = getCart($username);
+            $_SESSION['cart'] = [];
 
             header('Location: ?');
         } else {
@@ -30,7 +30,6 @@ function login($username, $passwordUnHashed){
             require 'View/login.php';
         }
     }else{
-        $error = "Please fill in all the fields";
         require 'View/login.php';
     }
 
@@ -47,32 +46,36 @@ function logout(){
 
 /**
  * @brief Enter user information to enter the database and create a new user
- * @param $username string username/email of user
- * @param $realName string real name of user
- * @param $surname string surname of user
- * @param $passwordUnHashed string password of user not hashed
+ * @param $post array The post array
  * @return null
  */
-function register($username, $realName, $surname, $passwordUnHashed){
+function register($post){
     require "Model/user.php";
-    require "Model/cart.php";
 
-    if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-        if (!isLoginExist($username)) {
-            $password = hash("sha256", $passwordUnHashed);
-            newAccount($username, $password, $realName, $surname);
+    if(isset($post['username']) && isset($post['realName']) && isset($post['surname']) && isset($post['password'])){
+        $username = $post['username'];
+        $realName = $post['realName'];
+        $surname = $post['surname'];
+        $passwordUnHashed = $post['password'];
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            if (!isLoginExist($username)) {
+                $password = hash("sha256", $passwordUnHashed);
+                newAccount($username, $password, $realName, $surname);
 
-            $_SESSION['username'] = $username;
-            $_SESSION['Fullname'] = fullName($username);
-            $_SESSION['cart'] = getCart($username);
+                $_SESSION['username'] = $username;
+                $_SESSION['Fullname'] = fullName($username);
+                $_SESSION['cart'] = [];
 
-            header('Location: ?');
+                header('Location: ?');
+            } else {
+                $error = "This email is already used";
+                require 'View/register.php';
+            }
         } else {
-            $error = "This email is already used";
+            $error = "Please enter a valid email";
             require 'View/register.php';
         }
     } else {
-        $error = "Please enter a valid email";
         require 'View/register.php';
     }
 

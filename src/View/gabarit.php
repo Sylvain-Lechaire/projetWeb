@@ -50,11 +50,11 @@
                     echo '    <a class="nav-link" href="?action=logout">Disconnect</a>';
                     echo '</li>';
                     echo '<li class="nav-item">';
-                    echo '    <a class="nav-link" href="?action=showCart">Cart</a>';
+                    echo '    <a class="nav-link" href="?action=cart">Cart</a>';
                     echo '</li>';
                 }else{
                     echo '<li class="nav-item">';
-                    echo '    <a class="nav-link" href="?action=loginPage">Login</a>';
+                    echo '    <a class="nav-link" href="?action=login">Login</a>';
                     echo '</li>';
                 }
                 ?>
