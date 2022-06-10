@@ -54,7 +54,7 @@ ob_start();
               </form>
               <div class="down-content">
                 <div class="categories">
-                  <h6>Category: <span><?php foreach ($article['Category'] as $i) echo "<a href='#'>$i</a>,"; ?></span></h6>
+                  <h6>Category: <span><?php foreach ($article['categories'] as $i) echo "<a href='#'>$i</a>,"; ?></span></h6>
                 </div>
                 <div class="share">
                   <h6>Share: <span><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a><a href="https://www.linkedin.com/""><i class="fa fa-linkedin"></i></a><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></span></h6>

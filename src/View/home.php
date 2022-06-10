@@ -51,9 +51,9 @@ ob_start();
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
                 <?php foreach ($allArticle as $i): ?>
-                    <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
+                    <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                         <div class="featured-item">
-                            <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                            <img src="Assets/images/<?= $i['imageName'] ?>" alt="Item <?= $i['productId'] ?>">
                             <h4><?= $i['name'] ?></h4>
                             <h6>$ <?= $i['price'] ?></h6>
                         </div>

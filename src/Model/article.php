@@ -26,7 +26,11 @@ function getAllArticle(){
 function getArticle($id){
     require_once 'model/dbConnector.php';
     $article = querySelect('SELECT productId, chassiNumber, name, imageName, price, description FROM articles WHERE productId = '.$id)[0];
+    $categories = querySelect('SELECT categories.name AS categorie FROM articles_has_categories INNER JOIN articles ON articles_has_categories.Articles_id = articles.id INNER JOIN categories ON articles_has_categories.Categories_id = categories.id WHERE articles.productId = '.$id);
+    $article['categories'] = [];
+    foreach ($categories as $category) {
+        array_push($article['categories'], $category['categorie']);
+    }
 
-    return ;
-
+    return $article;
 }
