@@ -3,32 +3,30 @@
  * @file      Model/article.php
  * @brief     This file is to get article detail
  * @author    Created by Ethann.SCHNEIDER
- * @version   13-MAY-2022
+ * @author    Updated by Amos Le Coq
+ * @version   10-JUN-2022
  */
 
 /**
  * @brief this function is to get all articles
  * @return mixed array of articles
+ * @author Amos Le Coq
  */
 function getAllArticle(){
-    $file = file_get_contents("Model/article.json");
-    $allArticle = json_decode($file, true);
-
-    return $allArticle;
+    require_once 'model/dbConnector.php';
+    return querySelect('SELECT productId, chassiNumber, name, imageName, price, description FROM articles');
 }
 
 /**
- * @brief this function is to get json of one article with id
+ * @brief this function is to get database of one article with id
  * @param $id integer the id of the article
- * @return mixed|void the json of the article
+ * @return mixed array of one article
+ * @author Amos Le Coq
  */
 function getArticle($id){
-    $file = file_get_contents("Model/article.json");
-    $AllArticle = json_decode($file, true);
+    require_once 'model/dbConnector.php';
+    $article = querySelect('SELECT productId, chassiNumber, name, imageName, price, description FROM articles WHERE productId = '.$id)[0];
 
-    foreach ($AllArticle as $i){
-        if($i['ProductId'] == $id){
-            return $i;
-        }
-    }
+    return ;
+
 }

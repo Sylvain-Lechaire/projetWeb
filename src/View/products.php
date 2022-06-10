@@ -38,10 +38,10 @@ ob_start();
 
         <div class="row posts">
             <?php foreach ($allArticle as $i): ?>
-            <div id="<?= $i['ProductId'] ?>" class="item new col-md-4">
-              <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
+            <div id="<?= $i['productId'] ?>" class="item new col-md-4">
+              <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                 <div class="featured-item">
-                  <img src="../<?= $i['image'] ?>" alt="">
+                  <img src="Assets/images/<?= $i['imageName'] ?>" alt="">
                   <h4><?= $i['name'] ?></h4>
                   <h6>$ <?= $i['price'] ?></h6>
                 </div>

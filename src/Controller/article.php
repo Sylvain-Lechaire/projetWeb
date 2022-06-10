@@ -15,7 +15,7 @@ function articleExist($id){
     require "model/article.php";
     $allArticle = getAllArticle();
     foreach ($allArticle as $item) {
-        if ($item['ProductId'] == $id){
+        if ($item['productId'] == $id){
             return true;
         }
     }

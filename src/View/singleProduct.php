@@ -27,7 +27,7 @@ ob_start();
               <div id="slider" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="../<?= $article['image'] ?>" />
+                    <img src="Assets/images/<?= $article['imageName'] ?>" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -35,7 +35,7 @@ ob_start();
               <div id="carousel" class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="../<?= $article['image'] ?>" />
+                    <img src="Assets/images/<?= $article['imageName'] ?>" />
                   </li>
                   <!-- items mirrored twice, total of 12 -->
                 </ul>
@@ -47,16 +47,10 @@ ob_start();
               <h4><?= $article['name'] ?></h4>
               <h6>$<?= $article['price'] ?></h6>
               <p><?= $article['description'] ?></p>
-              <span><?= $article['quantityLeft'] ?> left on stock</span>
               <form action="?action=cart" method="post">
-                <label for="quantity">Quantity:</label>
-                <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
-                	onfocus="if(this.value == '1') { this.value = ''; }" 
-                    onBlur="if(this.value == '') { this.value = '1';}"
-                    value="1" max="<?= $article['quantityLeft'] ?>">
-                <input type="submit" class="button" value="Order Now!">
+                  <input type="submit" class="button" value="Order Now!">
                 <input type="text" name="type" value="add" hidden>
-                <input type="number" name="id" value="<?= $article['ProductId'] ?>" hidden>
+                <input type="number" name="id" value="<?= $article['productId'] ?>" hidden>
               </form>
               <div class="down-content">
                 <div class="categories">
@@ -87,9 +81,9 @@ ob_start();
           <div class="col-md-12">
             <div class="owl-carousel owl-theme">
                 <?php foreach ($allArticle as $i): ?>
-                    <a href="?action=singleProduct&id=<?= $i['ProductId'] ?>">
+                    <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                         <div class="featured-item">
-                            <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                            <img src="Assets/images/<?= $i['imageName'] ?>" alt="Item <?= $i['productId'] ?>">
                             <h4><?= $i['name'] ?></h4>
                             <h6>$ <?= $i['price'] ?></h6>
                         </div>
