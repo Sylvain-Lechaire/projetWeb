@@ -36,7 +36,7 @@ if (isset($_GET['action'])) {
             getCheckAllArticle();
             break;
         case 'singleProduct':
-            getCheckArticle($_GET['id']);
+            getCheckArticle($_GET);
             break;
         case 'about':
             about();

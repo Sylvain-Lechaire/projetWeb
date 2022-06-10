@@ -24,16 +24,21 @@ function articleExist($id){
 
 /**
  * @brief this function is to get one article with id
- * @param $id integer the id of the article
+ * @param $get array
  * @return void
  */
-function getCheckArticle($id){
-    if (articleExist((int)$id)){
-        $article = getArticle((int)$id);
-        $allArticle = getAllArticle();
-        require 'View/singleProduct.php';
+function getCheckArticle($get){
+    if(isset($get['id'])){
+        $id = $get['id'];
+        if (articleExist((int)$id)){
+            $article = getArticle((int)$id);
+            $allArticle = getAllArticle();
+            require 'View/singleProduct.php';
+        }else{
+            header('Location: ?action=products');
+        }
     }else{
-        require 'View/products.php';
+        header('Location: ?action=products');
     }
 }
 
