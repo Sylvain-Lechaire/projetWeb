@@ -14,7 +14,7 @@ function dbConnector(){
     if(!file_exists('Model/credential.csv')){
         die('credential.csv not found contact the administrator');
     }
-    $f = fopen("credential.csv", 'r');
+    $f = fopen("Model/credential.csv", 'r');
     $row = fgetcsv($f);;
     fclose($f);
     return new PDO($row[0].':host='.$row[1].';dbname='.$row[2].';port='.$row[3].';charset='.$row[4], $row[5], $row[6]);
