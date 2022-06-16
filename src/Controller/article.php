@@ -12,7 +12,7 @@
  * @return bool
  */
 function articleExist($id){
-    require "model/article.php";
+    require "Model/article.php";
     $allArticle = getAllArticle();
     foreach ($allArticle as $item) {
         if ($item['productId'] == $id){
@@ -47,8 +47,21 @@ function getCheckArticle($get){
  * @return void
  */
 function getCheckAllArticle(){
-    require "model/article.php";
+    require "Model/article.php";
     $allArticle = getAllArticle();
 
     require 'View/products.php';
+}
+
+function articleManager($post){
+    require "Model/article.php";
+
+    if (isset() && isset())
+    $allArticle = getAllArticle();
+    if ($_SESSION['isAdmin']>=1){
+        require "View/articleManager.php";
+    }else{
+        require "View/home.php";
+    }
+
 }

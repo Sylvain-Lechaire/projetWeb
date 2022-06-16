@@ -23,6 +23,7 @@ function login($post){
             $_SESSION['username'] = $username;
             $_SESSION['Fullname'] = fullName($username);
             $_SESSION['cart'] = [];
+            $_SESSION['isAdmin'] = isAdmin($username);
 
             header('Location: ?');
         } else {
@@ -65,6 +66,7 @@ function register($post){
                 $_SESSION['username'] = $username;
                 $_SESSION['Fullname'] = fullName($username);
                 $_SESSION['cart'] = [];
+                $_SESSION['isAdmin'] = isAdmin($username);
 
                 header('Location: ?');
             } else {

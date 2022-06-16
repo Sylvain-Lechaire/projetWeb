@@ -43,6 +43,19 @@ function fullName($user){
     return $queryResult[0]." ".$queryResult[1];
 }
 
+function isAdmin($login){
+    $strSeparator ='\'';
+
+    //select to check the user's input
+    $loginQuery='SELECT isAdmin FROM users ';
+    $loginQuery.='WHERE userMail='.$strSeparator.$login.$strSeparator;
+    //execute query
+    require_once "Model/dbConnector.php";
+    $queryResult = querySelect($loginQuery);
+
+    return $queryResult[0][0];
+}
+
 /**
  * @brief get is login already exist
  * @param $login string username/email of user

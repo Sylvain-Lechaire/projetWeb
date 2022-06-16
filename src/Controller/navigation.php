@@ -31,3 +31,4 @@ function lost(){
 function about(){
     require 'View/about.php';
 }
+
