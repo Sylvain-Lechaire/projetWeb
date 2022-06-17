@@ -4,7 +4,7 @@
  * @file      Model/user.php
  * @brief     This file contains the functions to manage the user.
  * @author    Created by Ethann.SCHNEIDER, Amos.LeCoq, Sylvain.Léchaire
- * @version   10-JUNE-2022
+ * @version   17-JUNE-2022
  */
 
 /**
@@ -89,7 +89,7 @@ function isLoginExist($login){
 function newAccount($userMail, $hashPassword, $realName, $familyName){
     //move
     require_once "Model/dbConnector.php";
-    $registerQuery = "INSERT INTO users(firstName,lastName, password,userMail) VALUES ('".$realName."', '".$familyName."','".$hashPassword."','".$userMail."')";
+    $registerQuery = "INSERT INTO users(firstName,lastName, password,userMail, isAdmin) VALUES ('".$realName."', '".$familyName."','".$hashPassword."','".$userMail."',0)";
     queryInsert($registerQuery);
 }
 

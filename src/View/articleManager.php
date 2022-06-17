@@ -1,9 +1,9 @@
 <?php
 /**
- * @file      View/cart.php
- * @brief     This file is to display the cart
- * @author    Created by Ethann.SCHNEIDER
- * @version   13-MAY-2022
+ * @file      View/articleManager.php
+ * @brief     This file is to display the article manager page
+ * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
+ * @version   17-JUNE-2022
  */
 
 

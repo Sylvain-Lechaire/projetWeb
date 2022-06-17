@@ -3,7 +3,7 @@
  * @file      Controller/article.php
  * @brief     This file is to control article setting
  * @author    Created by Ethann.SCHNEIDER and Amos.LeCoq
- * @version   13-MAY-2022
+ * @version   17-JUNE-2022
  */
 
 /**
@@ -69,7 +69,7 @@ function articleManager($post, $file){
         }else if (isset($post['id']) && isset($post['chassiNumber']) && isset($post['name']) && isset($post['price']) && isset($post['description'])){
             $image = null;
             if (isset($file['image'])){
-                $image = $file['image'];
+                if($file['image']['tmp_name'] != '') $image = $file['image'];
             }
             modifyArticle($post['id'], $post['chassiNumber'], $post['name'], $post['price'], $post['description'], $image);
         }

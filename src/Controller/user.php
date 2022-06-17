@@ -3,7 +3,7 @@
  * @file      Controller/user.php
  * @brief     This file is to control user setting
  * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
- * @version   10-JUNE-2022
+ * @version   17-JUNE-2022
  */
 
 /**
@@ -15,7 +15,6 @@ function login($post){
     require 'Model/user.php';
 
     if(isset($post['username']) && isset($post['password'])){
-        echo "test";
         $username = $post['username'];
         $password = hash("sha256", $post['password']);
 

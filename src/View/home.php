@@ -3,7 +3,7 @@
  * @file      View/home.php
  * @brief     This file is to display the home page
  * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
- * @version   13-MAY-2022
+ * @version   17-JUNE-2022
  */
 
 $title = "Acceuil";
