@@ -1,26 +1,15 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/about.php
+ * @brief     This file is to display the about page
+ * @author    Created by Ethann.SCHNEIDER AND Amos.LeCoq
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = "About us";
+
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <title>About Us</title>
-      <?php include 'template/head.php'?>
-  </head>
-
-  <body>
-
-  <?php include "template/header.php";?>
-
     <!-- Page Content -->
     <!-- About Page Starts Here -->
     <div class="about-page">
@@ -34,7 +23,7 @@ session_start();
           </div>
           <div class="col-md-6">
             <div class="left-image">
-              <img src="assets/images/about-us.jpg" alt="">
+              <img src="../Assets/images/about-us.jpg" alt="">
             </div>
           </div>
           <div class="col-md-6">
@@ -63,8 +52,7 @@ session_start();
     </div>
     <!-- About Page Ends Here -->
 
-  <?php include "template/footer.html";?>
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>

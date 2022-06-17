@@ -1,40 +1,23 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 16.03.22
-*/
+/**
+ * @file      View/cart.php
+ * @brief     This file is to display the cart
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
-session_start();
 
 if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-    header("Location: ../View/");
+    header("Location: ?action=home");
 }
-
-require '../Model/Article.php';
-require '../Model/Cart.php';
-
-$AllArticle = getAllArticle();
-
-$UserCart = getCart($_SESSION['username']);
 
 $num = 0;
 $price = 0;
 
+$title = "Cart";
+
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Cart</title>
-    <?php include 'template/head.php'?>
-</head>
-
-<body>
-
-<?php include "template/header.php";?>
 
 <br><br><br><br>
 <div class="container">
@@ -56,48 +39,35 @@ $price = 0;
                         width: 10%;
                     }
                 </style>
-                <?php if(isset($UserCart[0])): ?>
+                <?php if(isset($_SESSION['cart'][0])): ?>
                     <table class="Cart-List">
                         <thead>
                         <tr>
                             <th>N°</th>
                             <th>Picture</th>
                             <th>Name</th>
-                            <th>Number</th>
-                            <th>Unit Price</th>
                             <th>Price</th>
                         </tr>
                         </thead>
-
-                        <?php foreach ($UserCart as $i): ?>
+                        <?php foreach ($_SESSION['cart'] as $i): ?>
                         <?php
-                            $item = getArticle($i['Product']);
+                            $item = getArticle($i);
                             $num++;
-                            $price += $item['price'] * $i['Number'];
+                            $price += $item['price'];
                         ?>
                         <tr>
                             <td><?= $num ?></td>
                             <td class="cart-img">
-                                <img src="../<?= $item['image'] ?>" height="150">
+                                <img src="Assets/images/<?= $item['imageName'] ?>" height="150">
                             </td>
-                            <td><a href="single-product.php?id=<?= $item['ProductId'] ?>"><?= $item['name'] ?></a></td>
-                            <td>
-                                <form action="../Controller/cartControl.php" method="post" id="ChangeNumberForm<?= $i['Product'] ?>">
-                                    <input name="quantity" type="quantity" class="quantity-text" id="quantity"
-                                           onfocus="if(this.value == '1') { this.value = ''; }"
-                                           onBlur="if(this.value == '') { this.value = '1';}"
-                                           value="<?= $i["Number"] ?>" max="<?= $item['quantityLeft'] ?>" onchange="document.getElementById('ChangeNumberForm<?= $i['Product'] ?>').submit();">
-                                    <input type="submit" class="button" value="Change" hidden>
-                                    <input type="text" name="type" value="add" hidden>
-                                    <input type="number" name="id" value="<?= $item['ProductId'] ?>" hidden>
-                                </form>
-                            </td>
+                            <td><a href="singleProduct.php?id=<?= $item['productId'] ?>"><?= $item['name'] ?></a></td>
+
                             <td>CHF <?= $item['price'] ?></td>
-                            <td>CHF <?= $item['price'] * $i['Number'] ?></td>
                             <td width="20">
-                                <form action="../Controller/cartControl.php" method="post">
+                                <form action="?action=cart" method="post">
                                     <input type="text" name="type" value="delete" hidden>
-                                    <input type="number" name="id" value="<?= $i['Product'] ?>" hidden>
+                                    <input type="number" name="id" value="<?= $i ?>" hidden>
+                                    <input type="text" name="quantity" value="0" hidden>
                                     <input type="submit" value="❌">
                                 </form>
                             </td>
@@ -106,13 +76,15 @@ $price = 0;
 
                         <tfoot>
                         <tr>
-                            <td colspan="5">Total : </td>
+                            <td colspan="3">Total : </td>
                             <td>CHF <?= $price ?></td>
                         </tr>
                         </tfoot>
                     </table>
-                    <form action="../Controller/cartControl.php" method="post">
+                    <form action="?action=cart" method="post">
                         <input type="text" name="type" value="clear" hidden>
+                        <input type="number" name="id" value="all" hidden>
+                        <input type="text" name="quantity" value="0" hidden>
                         <input type="submit" value="Vider le Panier">
                     </form>
                 <?php else: ?>
@@ -139,10 +111,10 @@ $price = 0;
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme">
-                    <?php foreach ($AllArticle as $i): ?>
-                        <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+                    <?php foreach ($allArticle as $i): ?>
+                        <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                             <div class="featured-item">
-                                <img src="../<?= $i['image'] ?>" alt="Item <?= $i['ProductId'] ?>">
+                                <img src="Assets/images/<?= $i['imageName'] ?>" alt="Item <?= $i['productId'] ?>">
                                 <h4><?= $i['name'] ?></h4>
                                 <h6>$ <?= $i['price'] ?></h6>
                             </div>
@@ -155,8 +127,7 @@ $price = 0;
 </div>
 <!-- Also Ends Here -->
 
-<?php include "template/footer.html";?>
-
-</body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>

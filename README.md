@@ -1,25 +1,41 @@
-## Installation PhpStorm
+# **Tank site**
 
-link for instal [phpStorm](https://www.jetbrains.com/phpstorm/download/download-thanks.html)
+### Description
+It's a website for collector to buy tanks.\
+We are a tanks company.
 
-## Open project
+---
 
-1: Open phpstorm
+### Getting Started
 
-2: Get from VCS
+#### Webserver
+You will need a webserver to get work the website \
+Like apache2, nginx, etc... \
+Use the src file for the root.
 
-3: Copy URL: https://github.com/Sylvain-Lechaire/projetWeb.git
+#### PHP
+Get php 8.0 to use the website
 
-4: Check for [update](https://github.com/Sylvain-Lechaire/projetWeb/blob/main/documentation/Documentation.pdf) phpStorm
+#### if you want code with us here is a link that can help
+- [git flow](https://github.com/Sylvain-Lechaire/projetWeb/blob/main/documentation/Branche.pdf)
+- [Naming convention](https://github.com/Sylvain-Lechaire/projetWeb/wiki/Naming-convention)
 
-## Installation git flow
+---
 
-1: Open Terminal
+### Contribution
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-2: Write "git flow init"
+Please make sure to update tests as appropriate.
 
-3: Pass all "enter"
+---
 
-4: Pass to develop branch "git switch develop"
+### Authors
+Sylvain Lechaire\
+Ethann Schneider\
+Nicolas Glassey\
+Amos Le Coq
 
-5: Git command for [branch](https://github.com/Sylvain-Lechaire/projetWeb/blob/main/documentation/Branche.pdf)
+---
+
+### Licence
+[GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.fr.html)

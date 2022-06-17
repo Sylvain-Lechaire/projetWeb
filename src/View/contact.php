@@ -1,26 +1,15 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/contact.php
+ * @brief     This file is display contact page
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = "Contact";
+
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <title>Contact</title>
-      <?php include 'template/head.php'?>
-  </head>
-
-  <body>
-
-  <?php include "template/header.php";?>
-
     <!-- Page Content -->
     <!-- About Page Starts Here -->
     <div class="contact-page">
@@ -32,7 +21,7 @@ session_start();
               <h1>Contact Us</h1>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md- 6">
             <div id="map">
             		<!-- How to change your own map point
                            1. Go to Google Maps
@@ -87,10 +76,7 @@ session_start();
       </div>
     </div>
     <!-- About Page Ends Here -->
-
-  <?php include "template/footer.html";?>
-
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>

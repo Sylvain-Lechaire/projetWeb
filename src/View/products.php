@@ -1,29 +1,15 @@
 <?php
-/*
-Projet: Tank&Cio
-Author: Ethann Schneider
-Version: 1.0
-date: 04.02.22
-*/
+/**
+ * @file      View/singleProduct.php
+ * @brief     This file is display single product page
+ * @author    Created by Ethann.SCHNEIDER
+ * @version   13-MAY-2022
+ */
 
-session_start();
+$title = "Products";
 
-require '../Model/Article.php';
-
-$AllArticle = getAllArticle();
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <title>Product</title>
-      <?php include 'template/head.php'?>
-  </head>
-
-  <body>
-
-  <?php include "template/header.php";?>
 
     <!-- Page Content -->
     <!-- Items Starts Here -->
@@ -51,11 +37,11 @@ $AllArticle = getAllArticle();
     <div class="featured container no-gutter">
 
         <div class="row posts">
-            <?php foreach ($AllArticle as $i): ?>
-            <div id="<?= $i['ProductId'] ?>" class="item new col-md-4">
-              <a href="single-product.php?id=<?= $i['ProductId'] ?>">
+            <?php foreach ($allArticle as $i): ?>
+            <div id="<?= $i['productId'] ?>" class="item new col-md-4">
+              <a href="?action=singleProduct&id=<?= $i['productId'] ?>">
                 <div class="featured-item">
-                  <img src="../<?= $i['image'] ?>" alt="">
+                  <img src="Assets/images/<?= $i['imageName'] ?>" alt="">
                   <h4><?= $i['name'] ?></h4>
                   <h6>$ <?= $i['price'] ?></h6>
                 </div>
@@ -83,8 +69,7 @@ $AllArticle = getAllArticle();
     </div>
     <!-- Featred Page Ends Here -->
 
-  <?php include "template/footer.html";?>
-
-  </body>
-
-</html>
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>
