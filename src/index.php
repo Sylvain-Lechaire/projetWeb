@@ -8,10 +8,10 @@
 
 session_start();
 
-require "controller/navigation.php";
-require "controller/user.php";
-require "controller/article.php";
-require "controller/cart.php";
+require "Controller/navigation.php";
+require "Controller/user.php";
+require "Controller/article.php";
+require "Controller/cart.php";
 
 
 if (isset($_GET['action'])) {
@@ -40,6 +40,9 @@ if (isset($_GET['action'])) {
             break;
         case 'about':
             about();
+            break;
+        case 'articleManager':
+            articleManager($_POST, $_FILES);
             break;
         default:
             lost();

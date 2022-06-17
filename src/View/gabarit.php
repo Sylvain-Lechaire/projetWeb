@@ -52,6 +52,11 @@
                     echo '<li class="nav-item">';
                     echo '    <a class="nav-link" href="?action=cart">Cart</a>';
                     echo '</li>';
+                    if($_SESSION['isAdmin'] >= 1){
+                        echo '<li class="nav-item">';
+                        echo '    <a class="nav-link" href="?action=articleManager">article Manager</a>';
+                        echo '</li>';
+                    }
                 }else{
                     echo '<li class="nav-item">';
                     echo '    <a class="nav-link" href="?action=login">Login</a>';
