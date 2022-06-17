@@ -38,33 +38,43 @@ ob_start();
                         width: 10%;
                     }
                 </style>
-                    <table class="Cart-List">
-                        <thead>
-                        <tr>
-                            <th>N° chassi</th>
-                            <th>Name</th>
-                            <th>Picture</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
+                <table class="Cart-List">
+                    <thead>
+                    <tr>
+                        <th>N° chassi</th>
+                        <th>Name</th>
+                        <th>Picture</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Apply</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
 
-                        <?php foreach ($allArticle as $article):?>
-
-                        <tr>
-                            <form action="?action=articleManager" method="post">
-                                <td><input type="text" name="chassiNumber" value="<?= $article['chassiNumber'] ?>"></td>
-                                <td><input type="text" name="name" value="<?= $article['name']?>"></td>
-                                <td class="cart-img">
-                                    <input type="file" name="image">
-                                    <img src="Assets/images/<?= $article['imageName'] ?>" height="150">
-                                </td>
-                                <td><input type="number" name="price" value="<?= $article['price'] ?>">CHF</td>
-                                <td><textarea name="description"><?= $article['description']?></textarea></td>
-                            </form>
-                        </tr>
-                        <?php endforeach;?>
-                    </table>
+                    <?php foreach ($allArticle as $article):?>
+                    <tr>
+                        <form action="?action=articleManager" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?= $article['productId'] ?>" required>
+                            <td><input type="text" name="chassiNumber" value="<?= $article['chassiNumber'] ?>" required></td>
+                            <td><input type="text" name="name" value="<?= $article['name']?>" required></td>
+                            <td class="cart-img">
+                                <input type="file" name="image">
+                                <img src="Assets/images/<?= $article['imageName'] ?>" height="150">
+                            </td>
+                            <td><input type="number" name="price" value="<?= $article['price'] ?>" required>CHF</td>
+                            <td><textarea name="description" cols="20" rows="10"><?= $article['description']?></textarea></td>
+                            <td><input type="submit" value="Apply"></td>
+                        </form>
+                        <form action="?action=articleManager" method="post">
+                            <input type="hidden" name="id" value="<?= $article['productId'] ?>" required>
+                            <td><input type="submit" name="remove" value="Remove"></td>
+                        </form>
+                    </tr>
+                    <?php endforeach;?>
+                </table>
+                <form id="add" method="post" action="?action=articleManager">
+                    <input type="submit" name="add" value="add">
+                </form>
             </div>
         </div>
     </div>

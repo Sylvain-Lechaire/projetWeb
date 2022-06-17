@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
             about();
             break;
         case 'articleManager':
-            articleManager($_POST);
+            articleManager($_POST, $_FILES);
             break;
         default:
             lost();

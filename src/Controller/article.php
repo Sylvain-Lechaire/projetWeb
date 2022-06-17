@@ -53,15 +53,30 @@ function getCheckAllArticle(){
     require 'View/products.php';
 }
 
-function articleManager($post){
+/**
+ * @brief this function is the article manager controller
+ * @param $post array
+ * @param $file array
+ * @return void
+ */
+function articleManager($post, $file){
     require "Model/article.php";
-
-    if (isset() && isset())
-    $allArticle = getAllArticle();
     if ($_SESSION['isAdmin']>=1){
+        if(isset($post['add'])) {
+            addArticle();
+        }else if(isset($post['remove']) && $post['id']){
+            removeArticle($post['id']);
+        }else if (isset($post['id']) && isset($post['chassiNumber']) && isset($post['name']) && isset($post['price']) && isset($post['description'])){
+            $image = null;
+            if (isset($file['image'])){
+                $image = $file['image'];
+            }
+            modifyArticle($post['id'], $post['chassiNumber'], $post['name'], $post['price'], $post['description'], $image);
+        }
+        $allArticle = getAllArticle();
+
         require "View/articleManager.php";
     }else{
         require "View/home.php";
     }
-
 }

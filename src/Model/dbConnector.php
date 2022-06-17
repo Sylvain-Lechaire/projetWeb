@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * @file      Model/dbConnector.php
  * @brief     This file is to connect to the database and to create the queries
@@ -15,7 +15,7 @@ function dbConnector(){
         die('credential.csv not found contact the administrator');
     }
     $f = fopen("Model/credential.csv", 'r');
-    $row = fgetcsv($f);;
+    $row = fgetcsv($f);
     fclose($f);
     return new PDO($row[0].':host='.$row[1].';dbname='.$row[2].';port='.$row[3].';charset='.$row[4], $row[5], $row[6]);
 }

@@ -34,3 +34,62 @@ function getArticle($id){
 
     return $article;
 }
+
+/**
+ * @brief Function to modify article
+ * @param $id int product Id
+ * @param $chassiNumber string
+ * @param $name string
+ * @param $price float
+ * @param $description string
+ * @param $image null|array array of post image
+ * @return bool if modify congratulate
+ */
+function modifyArticle($id, $chassiNumber, $name, $price, $description, $image){
+    require 'model/dbConnector.php';
+    try{
+        if ($image != null){
+            move_uploaded_file($image['tmp_name'] , "Assets/images/".$image['name']);
+            queryInsert('UPDATE articles SET chassiNumber = "'.$chassiNumber.'", name = "'.$name.'", price = '.$price.', description = "'.$description.'", imageName = "'.$image['name'].'" WHERE productId = '.$id.';');
+        } else {
+            queryInsert('UPDATE articles SET chassiNumber = "'.$chassiNumber.'", name = "'.$name.'", price = '.$price.', description = "'.$description.'" WHERE productId = '.$id.';');
+        }
+        return true;
+    }catch (PDOException $e){
+        return false;
+    }
+
+}
+
+/**
+ * @brief function to add one article
+ * @return bool if modify congratulate
+ */
+function addArticle(){
+    require 'model/dbConnector.php';
+    try {
+        $id = null;
+        do {
+            $id = rand(0, 200000000);
+        } while (count(querySelect("SELECT productId FROM articles WHERE productId = " . $id)) >= 1);
+        queryInsert("INSERT INTO articles(productId, chassiNumber, name, imageName, price, description) VALUES (".$id.", 'default', 'default', 'default', 0.00, 'default')");
+        return True;
+    }catch (PDOException $e){
+        return false;
+    }
+}
+
+/**
+ * @brief function to delete one article by productId
+ * @param $id
+ * @return bool if modify congratulate
+ */
+function removeArticle($id){
+    require 'model/dbConnector.php';
+    try {
+        queryInsert("DELETE FROM articles WHERE productId = ".$id);
+        return True;
+    }catch (PDOException $e){
+        return false;
+    }
+}
