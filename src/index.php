@@ -13,7 +13,6 @@ require "Controller/user.php";
 require "Controller/article.php";
 require "Controller/cart.php";
 
-
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
@@ -21,10 +20,10 @@ if (isset($_GET['action'])) {
             home();
             break;
         case 'login':
-            login($_POST);
+            login($_POST['username'], $_POST['password']);
             break;
         case 'register':
-            register($_POST);
+            register($_POST['username'], $_POST['realName'], $_POST['surname'], $_POST['password']);
             break;
         case 'logout':
             logout();
@@ -36,7 +35,7 @@ if (isset($_GET['action'])) {
             getCheckAllArticle();
             break;
         case 'singleProduct':
-            getCheckArticle($_GET);
+            getCheckArticle($_GET['id']);
             break;
         case 'about':
             about();

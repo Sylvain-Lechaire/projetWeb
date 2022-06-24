@@ -7,16 +7,16 @@
  */
 
 /**
- * @brief This function is to use the cart
- * @param $post array The post array
+ * @brief This function is designed to use the cart
+ * @param $cartItem
  * @return void
  */
-function cart($post){
+function cart($cartItem){
     require 'Model/article.php';
 
-    if(isset($post['id']) && isset($post['type'])){
-        $id = $post['id'];
-        $type = $post['type'];
+    if(isset($cartItem['id']) && isset($cartItem['type'])){
+        $id = $cartItem['id'];
+        $type = $cartItem['type'];
         switch ($type){
             case 'delete':
                 if (($key = array_search($id, $_SESSION['cart'])) !== false) {
@@ -30,14 +30,11 @@ function cart($post){
                 $_SESSION['cart'] = [];
                 break;
             default:
+                //TODO NGY - what's append if we switch on the default case (really nothing ?)
                 break;
         }
     }
 
-
-    $allArticle = getAllArticle();
+    $allArticle = getAllArticles();
     require 'View/cart.php';
 }
-
-
-?>

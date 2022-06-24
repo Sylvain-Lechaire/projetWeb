@@ -13,16 +13,15 @@
  * @param $password string password already hash
  * @return bool true if user already in database else false
  */
-function passwordCheck($user , $password){
+function passwordCheck($user , $password): bool
+{
     $result = false;
     $strSeparator ='\'';
-    //$loginQuery='SELECT userEmailAddress,userPsw FROM users WHERE userEmailAddress = '.$strSeparator.$userEmailAddress.'AND userPsw ='.$strSeparator.$userPsw.$strSeparator;
 
-    //select to check the user's input
     $loginQuery='SELECT userMail, password FROM users ';
     $loginQuery.='WHERE userMail='.$strSeparator.$user.$strSeparator;
     $loginQuery.=' AND password ='.$strSeparator.$password.$strSeparator;
-    //execute query
+
     require_once "Model/dbConnector.php";
     $queryResult = querySelect($loginQuery);
     if (count($queryResult)==1){
@@ -36,7 +35,8 @@ function passwordCheck($user , $password){
  * @param $user string username/email of user
  * @return string Full name of users
  */
-function fullName($user){
+function fullName($user): string
+{
     $strSeparator ='\'';
     $usrNameQuery = 'SELECT firstName, lastName FROM Users WHERE userMail = '.$strSeparator.$user.$strSeparator;
     $queryResult=querySelect($usrNameQuery)[0];
@@ -61,12 +61,11 @@ function isAdmin($login){
  * @param $login string username/email of user
  * @return bool if it exist return true if not return false
  */
-function isLoginExist($login){
+function isLoginExist($login): bool
+{
     $result = false;
     $strSeparator ='\'';
-    //$loginQuery='SELECT userEmailAddress,userPsw FROM users WHERE userEmailAddress = '.$strSeparator.$userEmailAddress.'AND userPsw ='.$strSeparator.$userPsw.$strSeparator;
 
-    //select to check the user's input
     $loginQuery='SELECT userMail FROM users ';
     $loginQuery.='WHERE userMail='.$strSeparator.$login.$strSeparator;
     //execute query
@@ -84,13 +83,17 @@ function isLoginExist($login){
  * @param $hashPassword string Hash password already Hashed
  * @param $realName string Firstname of user
  * @param $familyName string Family of user
- * @return bool
+ * @return void
+ * @throw //TODO NGY this function returns void, but should throw an exception if case of fail.
  */
-function newAccount($userMail, $hashPassword, $realName, $familyName){
-    //move
+function newAccount($userMail, $hashPassword, $realName, $familyName): bool
+{
     require_once "Model/dbConnector.php";
-    $registerQuery = "INSERT INTO users(firstName,lastName, password,userMail, isAdmin) VALUES ('".$realName."', '".$familyName."','".$hashPassword."','".$userMail."',0)";
-    queryInsert($registerQuery);
+    try{
+        $registerQuery = "INSERT INTO users(firstName,lastName, password,userMail, isAdmin) VALUES ('".$realName."', '".$familyName."','".$hashPassword."','".$userMail."',0)";
+        queryInsert($registerQuery);
+    }catch (PDOException $e){
+    throw new UserException("Erreur lors de la création du compte utilisateur");
 }
 
-?>
+}
