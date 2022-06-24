@@ -10,7 +10,8 @@
  * @brief This class is to connect to the database
  * @return PDO object
  */
-function dbConnector(){
+function dbConnector(): PDO
+{
     if(!file_exists('Model/credential.csv')){
         die('credential.csv not found contact the administrator');
     }
@@ -25,7 +26,8 @@ function dbConnector(){
  * @param $query string The query to execute
  * @return array|string array of the result of the query or false if the query failed
  */
-function querySelect($query){
+function querySelect($query): bool|array|string
+{
     try {
         $db = dbConnector();
 
@@ -46,7 +48,8 @@ function querySelect($query){
  * @param $query string The query to execute
  * @return bool|string true if the query succeeded, false if the query failed
  */
-function queryInsert($query){
+function queryInsert($query): bool|string
+{
     try {
         $db = dbConnector();
 

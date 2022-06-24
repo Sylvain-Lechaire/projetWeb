@@ -11,28 +11,26 @@
  * @param $post array The post array
  * @return null
  */
-function login($post){
+function login($username, $password){
     require 'Model/user.php';
 
-    if(isset($post['username']) && isset($post['password'])){
-        $username = $post['username'];
-        $password = hash("sha256", $post['password']);
+    if(isset($username) && isset($password)){
+        $passwordHash = hash("sha256", $password);
 
         if (passwordCheck($username, $password)) {
+            //TODO NGY DRY principle - duplicate with register
             $_SESSION['username'] = $username;
-            $_SESSION['Fullname'] = fullName($username);
+            $_SESSION['fullname'] = fullName($username);//TODO NGY we do not need this attribute (duplicate of username)
             $_SESSION['cart'] = [];
+            //TODO NGY Make sense to offer the cart function to the admin ?
             $_SESSION['isAdmin'] = isAdmin($username);
 
             header('Location: ?');
         } else {
             $error = "Wrong username or password";
-            require 'View/login.php';
         }
-    }else{
-        require 'View/login.php';
     }
-
+    require 'View/login.php';
 }
 
 /**
@@ -49,7 +47,7 @@ function logout(){
  * @param $post array The post array
  * @return null
  */
-function register($post){
+function register($username, $realName, $surname, $password){
     require "Model/user.php";
 
     if(isset($post['username']) && isset($post['realName']) && isset($post['surname']) && isset($post['password'])){
@@ -62,6 +60,7 @@ function register($post){
                 $password = hash("sha256", $passwordUnHashed);
                 newAccount($username, $password, $realName, $surname);
 
+                //TODO NGY DRY principle - duplicate with login
                 $_SESSION['username'] = $username;
                 $_SESSION['Fullname'] = fullName($username);
                 $_SESSION['cart'] = [];
@@ -70,14 +69,10 @@ function register($post){
                 header('Location: ?');
             } else {
                 $error = "This email is already used";
-                require 'View/register.php';
             }
         } else {
             $error = "Please enter a valid email";
-            require 'View/register.php';
         }
-    } else {
-        require 'View/register.php';
     }
-
+    require 'View/register.php';
 }

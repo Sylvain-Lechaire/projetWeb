@@ -12,7 +12,7 @@
  */
 function home(){
     require 'Model/article.php';
-    $allArticle = getAllArticle();
+    $allArticles = getAllArticles();
     require 'View/home.php';
 }
 

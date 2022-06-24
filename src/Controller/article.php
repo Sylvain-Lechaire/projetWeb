@@ -7,15 +7,15 @@
  */
 
 /**
- * @brief     This function is to check if article exist
- * @param $id integer the id of the article
+ * @brief     This function is designed to check if article exists
+ * @param $articleId integer
  * @return bool
  */
-function articleExist($id){
+function articleExists($articleId){
     require "Model/article.php";
-    $allArticle = getAllArticle();
-    foreach ($allArticle as $item) {
-        if ($item['productId'] == $id){
+    $allArticles = getAllArticles();
+    foreach ($allArticles as $item) {
+        if ($item['productId'] == $articleId){
             return true;
         }
     }
@@ -23,16 +23,16 @@ function articleExist($id){
 }
 
 /**
- * @brief this function is to get one article with id
+ * @brief this function is designed to redirect to the article view
  * @param $get array
  * @return void
  */
 function getCheckArticle($get){
     if(isset($get['id'])){
-        $id = $get['id'];
-        if (articleExist((int)$id)){
-            $article = getArticle((int)$id);
-            $allArticle = getAllArticle();
+        $articleId = $get['id'];
+        if (articleExists((int)$articleId)){
+            $article = getArticle((int)$articleId);
+            $allArticles = getAllArticles();
             require 'View/singleProduct.php';
         }else{
             header('Location: ?action=products');
@@ -43,7 +43,7 @@ function getCheckArticle($get){
 }
 
 /**
- * @brief this function is to get all article
+ * @brief this function is designed to redirect to the articles view
  * @return void
  */
 function getCheckAllArticle(){
@@ -54,26 +54,31 @@ function getCheckAllArticle(){
 }
 
 /**
- * @brief this function is the article manager controller
- * @param $post array
- * @param $file array
+ * @brief this function is designed to be the entry point of a CRUD specific for article
+ * @param $articleAttributes array : product attributes
+ * @param $visualProduct visual product
  * @return void
  */
-function articleManager($post, $file){
+function articleManager(array $articleAttributes, $visualProduct){
     require "Model/article.php";
     if ($_SESSION['isAdmin']>=1){
-        if(isset($post['add'])) {
+        if(isset($articleAttributes['add'])) {
+            //TODO addArticle do not received the new article as parameter ?
             addArticle();
-        }else if(isset($post['remove']) && $post['id']){
-            removeArticle($post['id']);
-        }else if (isset($post['id']) && isset($post['chassiNumber']) && isset($post['name']) && isset($post['price']) && isset($post['description'])){
+        }else if(isset($articleAttributes['remove']) && $articleAttributes['id']){
+            removeArticle($articleAttributes['id']);
+        }else if (isset($articleAttributes['id']) && isset($articleAttributes['chassiNumber']) &&
+                  isset($articleAttributes['name']) && isset($articleAttributes['price']) &&
+                  isset($articleAttributes['description'])){
             $image = null;
-            if (isset($file['image'])){
-                if($file['image']['tmp_name'] != '') $image = $file['image'];
+            if (isset($visualProduct['image'])){
+                if($visualProduct['image']['tmp_name'] != '') $image = $visualProduct['image'];
             }
-            modifyArticle($post['id'], $post['chassiNumber'], $post['name'], $post['price'], $post['description'], $image);
+            modifyArticle($articleAttributes['id'], $articleAttributes['chassiNumber'],
+                          $articleAttributes['name'], $articleAttributes['price'],
+                          $articleAttributes['description'], $visualProduct);
         }
-        $allArticle = getAllArticle();
+        $allArticles = getAllArticles();
 
         require "View/articleManager.php";
     }else{
